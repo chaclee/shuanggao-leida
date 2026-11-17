@@ -1,0 +1,67 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #f2f7f5; /* 亮色、日光风格：浅青灰底，白卡片 */
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+#root { min-height: 100vh; }
+
+.site-layout { background: #f2f7f5; min-height: 100vh; }
+
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15, 118, 110, 0.12);
+  padding: 0;
+  height: auto;
+  line-height: normal;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(15, 60, 50, 0.06);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 24px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f766e;
+  text-decoration: none;
+  cursor: pointer;
+}
+.brand-sub { color: #5b6b66; font-size: 13px; }
+.site-menu {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-bottom: none;
+  background: transparent;
+}
+.site-menu .ant-menu-item { font-size: 15px; }
+
+.site-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+  width: 100%;
+}
+.site-content .ant-card { border-radius: 12px; }
+
+.site-footer {
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid rgba(15, 118, 110, 0.12);
+  padding: 20px 24px;
+}
+
+@media (max-width: 640px) {
+  .site-content { padding: 16px 12px; }
+  .brand { font-size: 19px; }
+  .brand-sub { display: none; }
+}

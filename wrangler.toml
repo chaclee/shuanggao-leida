@@ -1,0 +1,18 @@
+# Cloudflare Pages 项目配置（双高雷达）
+#
+# 说明（复用儿童站 kids-drawing-site 的 wrangler.toml 模式）：
+# - 第一期是纯静态站，不接后端、不接 D1、不需要任何密钥。
+#   下面的 D1 绑定整段是注释，第二期要用时再取消注释并填入
+#   `wrangler d1 create` 返回的 database_id。
+# - Git 自动部署时，Cloudflare Pages 会读取本文件；也可以用
+#   `npx wrangler pages deploy dist --project-name shuanggao-leida` 手动部署。
+
+name = "shuanggao-leida"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "dist"
+
+# 第二期才用（D1 数据库），第一期请勿取消注释：
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "shuanggao_leida"
+# database_id = "<wrangler d1 create shuanggao_leida 返回的 database_id>"
