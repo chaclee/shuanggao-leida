@@ -1,6 +1,12 @@
 import { Card, Col, Row, Table, Typography } from 'antd';
+import SourceLinks from './SourceLinks';
 
 const { Title, Paragraph, Text } = Typography;
+
+const GUIDELINE_LINKS = [
+  { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+  { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+];
 
 const BP_ROWS = [
   { key: '1', item: '诊室血压', target: '< 140/90 mmHg', note: '多次规范测量后由医生判断' },
@@ -39,6 +45,9 @@ export default function TreatmentPage() {
         按指南分层的治疗方案总览：先讲现在临床上在用的方案，再讲前沿技术处在哪个位置。
         依据来源：《中国高血压防治指南（2024 年修订版）》《中国血脂管理指南（2023 年）》及相关药品说明书。
         本页只做方案展示，不做个人用药建议，选药与调整请遵医嘱。
+      </Paragraph>
+      <Paragraph style={{ fontSize: 12 }}>
+        <SourceLinks links={GUIDELINE_LINKS} />
       </Paragraph>
 
       <Title level={4}>一、降压：五类经典药物与联合治疗</Title>
@@ -92,7 +101,10 @@ export default function TreatmentPage() {
                 { title: '说明', dataIndex: 'note', key: 'note' },
               ]}
             />
-            <Paragraph type="secondary" style={{ marginTop: 12 }}>依据来源：《中国高血压防治指南（2024 年修订版）》。</Paragraph>
+            <Paragraph type="secondary" style={{ marginTop: 12 }}>
+              依据来源：《中国高血压防治指南（2024 年修订版）》。
+              <SourceLinks links={[GUIDELINE_LINKS[0]]} prefix="链接" style={{ fontSize: 12 }} />
+            </Paragraph>
           </Card>
         </Col>
         <Col xs={24} md={12}>
@@ -105,7 +117,10 @@ export default function TreatmentPage() {
                 { title: '降幅要求', dataIndex: 'reduction', key: 'reduction' },
               ]}
             />
-            <Paragraph type="secondary" style={{ marginTop: 12 }}>依据来源：《中国血脂管理指南（2023 年）》。风险分层请以医生评估为准，本页只做对照展示。</Paragraph>
+            <Paragraph type="secondary" style={{ marginTop: 12 }}>
+              依据来源：《中国血脂管理指南（2023 年）》。风险分层请以医生评估为准，本页只做对照展示。
+              <SourceLinks links={[GUIDELINE_LINKS[1]]} prefix="链接" style={{ fontSize: 12 }} />
+            </Paragraph>
           </Card>
         </Col>
       </Row>

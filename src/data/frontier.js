@@ -12,14 +12,14 @@ export const DATA_CALIBER =
   '数字均为已发表试验或企业公告披露的结果，详见各条目来源。';
 
 export const SOURCES = [
-  { name: 'ClinicalTrials.gov', note: '临床试验登记与结果登记' },
-  { name: 'PubMed', note: '医学文献（NEJM / JAMA / Lancet 等）' },
-  { name: '美国 FDA / 欧洲 EMA', note: '药品与器械审批动态' },
+  { name: 'ClinicalTrials.gov', note: '临床试验登记与结果登记', url: 'https://clinicaltrials.gov' },
+  { name: 'PubMed', note: '医学文献（NEJM / JAMA / Lancet 等）', url: 'https://pubmed.ncbi.nlm.nih.gov' },
+  { name: '美国 FDA / 欧洲 EMA', note: '药品与器械审批动态', url: 'https://www.fda.gov', extraUrls: [{ label: 'EMA', url: 'https://www.ema.europa.eu/en/homepage' }] },
   { name: '中国国家药品监督管理局（NMPA）', note: '国内上市与审评动态' },
   { name: '企业公告（阿斯利康、Alnylam、Amgen、诺华、Esperion 等）', note: '试验结果与研发进展' },
-  { name: 'AHA / ESC / ACC 学术会议', note: '最新试验结果发布' },
-  { name: '《中国高血压防治指南（2024 年修订版）》', note: '降压治疗方案与目标值' },
-  { name: '《中国血脂管理指南（2023 年）》', note: '降脂治疗方案与 LDL-C 分层目标' },
+  { name: 'AHA / ESC / ACC 学术会议', note: '最新试验结果发布', url: 'https://www.heart.org', extraUrls: [{ label: 'ESC', url: 'https://www.escardio.org' }, { label: 'ACC', url: 'https://www.acc.org' }] },
+  { name: '《中国高血压防治指南（2024 年修订版）》', note: '降压治疗方案与目标值', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+  { name: '《中国血脂管理指南（2023 年）》', note: '降脂治疗方案与 LDL-C 分层目标', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
 ];
 
 // ---------------- 药物 / 技术资料库（26 条） ----------------
@@ -34,6 +34,12 @@ export const DRUGS = [
     indication: '高胆固醇血症、动脉粥样硬化性心血管疾病的一级与二级预防。',
     endpoint: '高强度剂量 LDL-C 降幅 ≥ 50%（指南分层）；中等强度 30%–49%。',
     source: '《中国血脂管理指南（2023 年）》及药品说明书',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Atorvastatin2D.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
   },
   {
     id: 'd2', name: '瑞舒伐他汀', nameEn: 'Rosuvastatin', target: 'HMG-CoA 还原酶',
@@ -42,6 +48,12 @@ export const DRUGS = [
     indication: '高胆固醇血症、心血管疾病预防。',
     endpoint: '高强度剂量 LDL-C 降幅 ≥ 50%（指南分层）。',
     source: '《中国血脂管理指南（2023 年）》及药品说明书',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Rosuvastatin-Formula_V3.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
   },
   {
     id: 'd3', name: '依折麦布', nameEn: 'Ezetimibe', target: 'NPC1L1（胆固醇吸收）',
@@ -50,6 +62,12 @@ export const DRUGS = [
     indication: '原发性高胆固醇血症，单用或与他汀联用。',
     endpoint: '单药 LDL-C 降幅约 18%–25%；IMPROVE-IT 试验：联合他汀，主要心血管事件 HR 0.936。',
     source: 'IMPROVE-IT 试验（NEJM 2015）；《中国血脂管理指南（2023 年）》',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Ezetimibe_structure.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'IMPROVE-IT（NEJM 2015）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/26039521/' },
+    ],
   },
   {
     id: 'd4', name: '依洛尤单抗', nameEn: 'Evolocumab', target: 'PCSK9',
@@ -58,6 +76,12 @@ export const DRUGS = [
     indication: '家族性高胆固醇血症、已确诊动脉粥样硬化性心血管疾病且 LDL-C 未达标者。',
     endpoint: 'LDL-C 降幅约 59%；FOURIER 试验：主要心血管事件 HR 0.85。',
     source: 'FOURIER 试验（NEJM 2017）；药品说明书',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Antibody_IgG1_structure.png',
+    imageCaption: '单克隆抗体（IgG1）结构示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'FOURIER（NEJM 2017）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/28304224/' },
+    ],
   },
   {
     id: 'd5', name: '阿利西尤单抗', nameEn: 'Alirocumab', target: 'PCSK9',
@@ -66,6 +90,12 @@ export const DRUGS = [
     indication: '急性冠脉综合征后、家族性高胆固醇血症等 LDL-C 未达标者。',
     endpoint: 'LDL-C 降幅约 55%–60%；ODYSSEY OUTCOMES 试验：主要心血管事件 HR 0.85。',
     source: 'ODYSSEY OUTCOMES 试验（NEJM 2018）；药品说明书',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Antibody_IgG1_structure.png',
+    imageCaption: '单克隆抗体（IgG1）结构示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'ODYSSEY OUTCOMES（NEJM 2018）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/30403574/' },
+    ],
   },
   {
     id: 'd6', name: '英克司兰', nameEn: 'Inclisiran', target: 'PCSK9',
@@ -74,6 +104,12 @@ export const DRUGS = [
     indication: '原发性高胆固醇血症、混合型血脂异常、家族性高胆固醇血症。',
     endpoint: 'ORION-10/11 试验：LDL-C 降幅约 50%；心血管结局试验 ORION-4 进行中，尚未公布关键结果。',
     source: 'ORION-10/11 试验（NEJM 2020）；药品说明书',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Leqvio.jpg',
+    imageCaption: 'Leqvio（英克司兰）产品包装实物图',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
+    ],
   },
   {
     id: 'd7', name: '贝派地酸', nameEn: 'Bempedoic acid', target: 'ATP 柠檬酸裂解酶（ACL）',
@@ -82,6 +118,13 @@ export const DRUGS = [
     indication: '他汀不耐受或他汀治疗后 LDL-C 仍未达标者。',
     endpoint: 'CLEAR Outcomes 试验：6 个月 LDL-C 降幅约 21%，四组分 MACE HR 0.87（11.7% vs 13.3%）。',
     source: 'CLEAR Outcomes 试验（NEJM 2023），ClinicalTrials.gov NCT02993406',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Bempedoic_acid.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'CLEAR Outcomes（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36876740/' },
+      { label: 'ClinicalTrials.gov NCT02993406', url: 'https://clinicaltrials.gov/study/NCT02993406' },
+    ],
   },
   {
     id: 'd8', name: '依维那库单抗', nameEn: 'Evinacumab', target: 'ANGPTL3',
@@ -90,6 +133,12 @@ export const DRUGS = [
     indication: '纯合子家族性高胆固醇血症（HoFH）。',
     endpoint: 'ELIPSE 试验：HoFH 患者 LDL-C 降幅约 49%。',
     source: 'ELIPSE 试验（NEJM 2020）；药品说明书',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Antibody_IgG1_structure.png',
+    imageCaption: '单克隆抗体（IgG1）结构示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'ELIPSE（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32813947/' },
+    ],
   },
   {
     id: 'd9', name: 'Pelacarsen', nameEn: 'Pelacarsen（TQJ230）', target: 'apo(a) / LPA mRNA',
@@ -98,6 +147,13 @@ export const DRUGS = [
     indication: '已确诊心血管疾病且 Lp(a) 升高的患者（探索性适应症）。',
     endpoint: 'II期 Lp(a) 降幅最高约 80%；III期 Lp(a)HORIZON 试验主要心血管终点未达到（HR 1.02，12.3% vs 12.1%），开发项目已终止。',
     source: 'Lp(a)HORIZON 试验，2026-11-07 AHA 大会公布并发表于 NEJM；ClinicalTrials.gov NCT04023552',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Antisense_DNA_oligonucleotide.svg',
+    imageCaption: '反义寡核苷酸作用机制示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'Lp(a)HORIZON（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43001734/' },
+      { label: 'ClinicalTrials.gov NCT04023552', url: 'https://clinicaltrials.gov/study/NCT04023552' },
+    ],
   },
   {
     id: 'd10', name: 'Olpasiran', nameEn: 'Olpasiran（AMG 890）', target: 'LPA mRNA',
@@ -106,6 +162,12 @@ export const DRUGS = [
     indication: '已确诊动脉粥样硬化性心血管疾病且 Lp(a) 升高的患者（在研适应症）。',
     endpoint: 'OCEAN(a)-DOSE 试验：高剂量组 Lp(a) 降幅超过 95%（225 mg 组安慰剂校正约 -97% 至 -101%）；心血管结局试验 OCEAN(a)-Outcomes 进行中，尚未公布关键结果。',
     source: 'OCEAN(a)-DOSE 试验（NEJM 2023）',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/SiRNA_and_RNAI_english.png',
+    imageCaption: 'siRNA 结构与 RNA 干扰机制示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'OCEAN(a)-DOSE · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=OCEAN%28a%29-DOSE+olpasiran' },
+    ],
   },
   {
     id: 'd11', name: 'Lepodisiran', nameEn: 'Lepodisiran（LY3819469）', target: 'LPA mRNA',
@@ -114,6 +176,12 @@ export const DRUGS = [
     indication: '动脉粥样硬化性心血管疾病或高危且 Lp(a) 升高的患者（在研适应症）。',
     endpoint: 'II期 Lp(a) 降幅约 94%，一次给药后效果持续 12 个月以上；III期 ACCLAIM-Lp(a) 结局试验进行中，尚未公布关键结果。',
     source: 'II期试验数据（NEJM 2024）；ACCLAIM-Lp(a) 试验登记',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/SiRNA_and_RNAI_english.png',
+    imageCaption: 'siRNA 结构与 RNA 干扰机制示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'Lepodisiran II期 · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=Lepodisiran+Long-Duration+Small+Interfering+RNA' },
+    ],
   },
   {
     id: 'd12', name: 'Zerlasiran', nameEn: 'Zerlasiran', target: 'LPA mRNA',
@@ -122,6 +190,12 @@ export const DRUGS = [
     indication: 'Lp(a) 升高的患者（在研适应症）。',
     endpoint: 'II期 Lp(a) 降幅约 96%（最高剂量组）；在研中，尚未公布关键结果。',
     source: 'II期试验数据；综述文献（Curr Atheroscler Rep 2026）',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/SiRNA_and_RNAI_english.png',
+    imageCaption: 'siRNA 结构与 RNA 干扰机制示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'Zerlasiran II期（JAMA 2024）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/39556769/' },
+    ],
   },
   {
     id: 'd13', name: 'Muvalaplin', nameEn: 'Muvalaplin（LY3473329）', target: 'apo(a)–ApoB 结合',
@@ -130,6 +204,12 @@ export const DRUGS = [
     indication: 'Lp(a) 升高的患者（在研适应症）。',
     endpoint: 'II期 KRAKEN 试验：完整 Lp(a) 降幅最高约 86%；III期 MOVE-Lp(a) 结局试验进行中，尚未公布关键结果。',
     source: 'KRAKEN II期试验数据；综述文献（Curr Atheroscler Rep 2026）',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Muvalaplin.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'KRAKEN（JAMA 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/39556768/' },
+    ],
   },
   {
     id: 'd14', name: 'Obicetrapib', nameEn: 'Obicetrapib', target: 'CETP（胆固醇酯转移蛋白）',
@@ -138,6 +218,12 @@ export const DRUGS = [
     indication: '他汀治疗后 LDL-C 仍未达标者（在研适应症）。',
     endpoint: 'BROOKLYN / BROADWAY 试验：LDL-C 降幅约 40%；心血管结局试验 PREVAIL 进行中，尚未公布关键结果。',
     source: 'BROOKLYN / BROADWAY 试验数据；PREVAIL 试验登记',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Obicetrapib.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'BROOKLYN（Nat Med 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/41760952/' },
+    ],
   },
   {
     id: 'd15', name: 'VERVE-101', nameEn: 'VERVE-101', target: 'PCSK9（基因）',
@@ -146,6 +232,12 @@ export const DRUGS = [
     indication: '家族性高胆固醇血症（探索性适应症）。',
     endpoint: 'I期探索性研究，安全性信号仍在评估中，尚未公布关键结果。',
     source: '企业公告与 I 期试验登记',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/DsDNA_break_repair_and_CRISPR-based_genome_editing.svg',
+    imageCaption: '基因编辑（CRISPR）机制示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'VERVE-101 · ClinicalTrials.gov检索', url: 'https://clinicaltrials.gov/search?term=VERVE-101' },
+    ],
   },
   {
     id: 'd16', name: '氨氯地平', nameEn: 'Amlodipine', target: 'L 型钙通道',
@@ -154,6 +246,12 @@ export const DRUGS = [
     indication: '高血压、心绞痛；老年单纯收缩期高血压、盐敏感人群常优先选用。',
     endpoint: '单药平均降收缩压约 10 mmHg（荟萃分析，不同剂量与人群有差异）。',
     source: '《中国高血压防治指南（2024 年修订版）》；荟萃分析',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Amlodipine.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
   },
   {
     id: 'd17', name: '缬沙坦 / 氯沙坦', nameEn: 'Valsartan / Losartan', target: '血管紧张素 II AT1 受体',
@@ -162,6 +260,12 @@ export const DRUGS = [
     indication: '高血压，合并糖尿病、蛋白尿、左室肥厚时常优先选用。',
     endpoint: '单药平均降收缩压约 10 mmHg（荟萃分析）；肾脏保护证据来自多项随机对照试验。',
     source: '《中国高血压防治指南（2024 年修订版）》',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Valsartan_v.02.svg',
+    imageCaption: '化学结构式（缬沙坦；本条目同时包含氯沙坦）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
   },
   {
     id: 'd18', name: '贝那普利', nameEn: 'Benazepril', target: '血管紧张素转换酶（ACE）',
@@ -170,6 +274,12 @@ export const DRUGS = [
     indication: '高血压，合并心衰、糖尿病肾病时常优先选用。',
     endpoint: '单药平均降收缩压约 10 mmHg（荟萃分析）；需注意干咳与血管性水肿风险。',
     source: '《中国高血压防治指南（2024 年修订版）》',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Benazepril_structure.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
   },
   {
     id: 'd19', name: '氢氯噻嗪 / 吲达帕胺', nameEn: 'Hydrochlorothiazide / Indapamide', target: '肾小管钠转运',
@@ -178,6 +288,12 @@ export const DRUGS = [
     indication: '高血压，老年、盐敏感、单纯收缩期高血压常优先选用；常作为联合治疗的基础药物。',
     endpoint: '单药平均降收缩压约 10 mmHg（荟萃分析）；需监测血钾、血糖与尿酸。',
     source: '《中国高血压防治指南（2024 年修订版）》',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Hydrochlorothiazide.svg',
+    imageCaption: '化学结构式（氢氯噻嗪；本条目同时包含吲达帕胺）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
   },
   {
     id: 'd20', name: '美托洛尔', nameEn: 'Metoprolol', target: 'β1 肾上腺素受体',
@@ -186,6 +302,12 @@ export const DRUGS = [
     indication: '高血压合并冠心病、心率快、心衰或心律失常时优先选用；不作为无合并症者的首选。',
     endpoint: '单药平均降收缩压约 10 mmHg（荟萃分析）。',
     source: '《中国高血压防治指南（2024 年修订版）》',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Metoprolol_structure.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
   },
   {
     id: 'd21', name: 'Baxdrostat', nameEn: 'Baxdrostat（Baxfendy）', target: '醛固酮合成酶 CYP11B2',
@@ -194,6 +316,13 @@ export const DRUGS = [
     indication: '未控制或难治性高血压（在标准治疗基础上加用）。',
     endpoint: 'BaxHTN III期：2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg，安慰剂校正下降 9.8 mmHg；1 mg 组安慰剂校正下降 8.7 mmHg。II期 BrigHTN：2 mg 组安慰剂校正下降约 11 mmHg。',
     source: 'BaxHTN 试验（NEJM 2025），ClinicalTrials.gov NCT06034743；BrigHTN 试验（NEJM 2023）',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Baxdrostat.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+      { label: 'ClinicalTrials.gov NCT06034743', url: 'https://clinicaltrials.gov/study/NCT06034743' },
+    ],
   },
   {
     id: 'd22', name: 'Lorundrostat', nameEn: 'Lorundrostat', target: '醛固酮合成酶 CYP11B2',
@@ -202,6 +331,12 @@ export const DRUGS = [
     indication: '未控制或难治性高血压（在研适应症）。',
     endpoint: 'II期研究显示降压效果；III期进行中，尚未公布关键结果。',
     source: 'II期试验数据；企业公告',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Lorundrostat.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'Lorundrostat · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=lorundrostat' },
+    ],
   },
   {
     id: 'd23', name: 'Zilebesiran', nameEn: 'Zilebesiran（ALN-AGT）', target: '血管紧张素原 AGT',
@@ -210,6 +345,13 @@ export const DRUGS = [
     indication: '轻中度及未控制高血压（在研适应症）。',
     endpoint: 'KARDIA-1 II期：300 mg 组 3 个月 24 小时动态收缩压安慰剂校正下降 16.7 mmHg（150 mg 组 -14.1，600 mg 组 -15.7），效果持续至 6 个月，血清血管紧张素原下降超过 90%；III期 ZENITH 结局试验 2025 年 8 月启动，约 11,000 人，尚未公布关键结果。',
     source: 'KARDIA-1 试验（JAMA 2024）；Alnylam / Roche 公告（2025-08）',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Zilebesiran_structure.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'KARDIA-1（JAMA 2024）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/38363577/' },
+      { label: 'Roche / Alnylam 公告（2025-08）', url: 'https://www.roche.com/media/releases/med-cor-2025-08-30' },
+    ],
   },
   {
     id: 'd24', name: 'Aprocitentan', nameEn: 'Aprocitentan（Tryvio）', target: '内皮素受体 ETA / ETB',
@@ -218,6 +360,13 @@ export const DRUGS = [
     indication: '难治性高血压（美国 2024 年 3 月 FDA 批准）。',
     endpoint: 'PRECISION III期：4 周时诊室收缩压安慰剂校正下降约 3.8 mmHg，效果持续至 48 周。',
     source: 'PRECISION 试验（Lancet 2022）；FDA 批准公告（2024-03）',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Aprocitentan.svg',
+    imageCaption: '化学结构式',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'PRECISION（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36356632/' },
+      { label: 'FDA 新药批准 2024', url: 'https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2024' },
+    ],
   },
   {
     id: 'd25', name: '肾去神经术', nameEn: 'Renal Denervation（RDN）', target: '肾交感神经',
@@ -226,6 +375,14 @@ export const DRUGS = [
     indication: '难治性高血压或药物不耐受的患者（器械治疗）。',
     endpoint: '多项随机对照试验（SPYRAL HTN-ON MED、RADIANCE-HTN）显示诊室收缩压较对照组多降约 5–10 mmHg；美国 FDA 于 2023 年 11 月批准两款器械。',
     source: 'SPYRAL HTN-ON MED、RADIANCE-HTN 试验；FDA 批准公告（2023-11）',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Renale_Denervation_Katholisches_Klinikum_Essen.jpg',
+    imageCaption: '肾去神经术治疗示意图',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'SPYRAL HTN-ON MED（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/35390320/' },
+      { label: 'RADIANCE-HTN SOLO（Lancet 2018）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/29803590/' },
+      { label: 'FDA 批准公告（2023-11）', url: 'https://www.fda.gov/news-events/press-announcements/fda-roundup-november-17-2023' },
+    ],
   },
   {
     id: 'd26', name: '高血压疫苗', nameEn: 'Hypertension vaccines', target: '血管紧张素 II 等',
@@ -234,6 +391,12 @@ export const DRUGS = [
     indication: '高血压（探索性方向）。',
     endpoint: '早期在研，尚未进入 III 期，尚未公布关键结果。',
     source: '综述文献；早期临床试验登记',
+    image: null,
+    imageCaption: '暂无实物图',
+    imageCredit: '',
+    sourceLinks: [
+      { label: '高血压疫苗 · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=hypertension+vaccine+angiotensin+II' },
+    ],
   },
 ];
 
@@ -245,6 +408,10 @@ export const RADAR_EVENTS = [
     title: 'Pelacarsen 的 Lp(a)HORIZON III期试验未达到主要心血管终点',
     summary: '8,323 名已确诊心血管疾病且 Lp(a) 升高的患者中，pelacarsen 组主要终点发生率 12.3%，安慰剂组 12.1%，风险比 HR 1.02，未达统计学意义；尽管 Lp(a) 下降约 78%，心血管事件并未减少。诺华随后宣布终止 pelacarsen 的动脉粥样硬化性心血管疾病开发项目。这一结果并未否定 Lp(a) 本身的致病作用，后续 siRNA 药物的结局试验仍在进行中。',
     source: 'Lp(a)HORIZON 试验，2026 年 AHA 大会公布并发表于 NEJM；ClinicalTrials.gov NCT04023552',
+    sourceLinks: [
+      { label: 'Lp(a)HORIZON（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43001734/' },
+      { label: 'ClinicalTrials.gov NCT04023552', url: 'https://clinicaltrials.gov/study/NCT04023552' },
+    ],
     drug: 'Pelacarsen', target: 'Lp(a)', tech: '反义寡核苷酸', stage: 'III期完成',
   },
   {
@@ -252,6 +419,10 @@ export const RADAR_EVENTS = [
     title: 'Baxdrostat 获欧洲药品管理局人用药品委员会（CHMP）积极意见',
     summary: '基于 BaxHTN 与 Bax24 两项 III期试验，CHMP 建议批准 baxdrostat（商品名 Baxfendy）用于成人高血压治疗。BaxHTN 中 2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg；Bax24 中 24 小时动态收缩压较基线下降 16.6 mmHg。',
     source: '阿斯利康公告（2026-11-16）；BaxHTN 试验（NEJM 2025）',
+    sourceLinks: [
+      { label: 'EMA Baxfendy 药品页', url: 'https://www.ema.europa.eu/en/medicines/human/EPAR/baxfendy' },
+      { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+    ],
     drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: 'III期完成',
   },
   {
@@ -259,6 +430,9 @@ export const RADAR_EVENTS = [
     title: '2026 年 ACC/AHA 血脂管理指南发布，强化 Lp(a) 检测与风险管理',
     summary: '新版指南进一步明确 Lp(a) 作为独立心血管危险因素的地位，强调对高危人群检测 Lp(a)，并结合整体风险进行管理；对在研 Lp(a) 降低药物的证据现状作了梳理，指出心血管结局证据仍在积累中。',
     source: 'ACC / AHA 血脂管理指南（2026 年）',
+    sourceLinks: [
+      { label: '2026 ACC/AHA 血脂指南 · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=2026+ACC%2FAHA+cholesterol+guideline' },
+    ],
     drug: '—', target: 'Lp(a)', tech: '—', stage: '—',
   },
   {
@@ -266,6 +440,10 @@ export const RADAR_EVENTS = [
     title: 'BaxHTN III期结果在 ESC 大会公布并发表于 NEJM',
     summary: '796 名未控制或难治性高血压患者随机接受 baxdrostat 1 mg、2 mg 或安慰剂，12 周时 2 mg 组诊室收缩压较基线下降 15.7 mmHg，安慰剂校正下降 9.8 mmHg；1 mg 组安慰剂校正下降 8.7 mmHg。两剂量均达到主要终点与全部次要终点。主要安全性关注点为高钾血症（2 mg 组血钾 > 6.0 mmol/L 占 3.0%，安慰剂组 0.4%）。',
     source: 'BaxHTN 试验（NEJM 2025），ClinicalTrials.gov NCT06034743；ESC 2025 大会',
+    sourceLinks: [
+      { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+      { label: 'ClinicalTrials.gov NCT06034743', url: 'https://clinicaltrials.gov/study/NCT06034743' },
+    ],
     drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: 'III期完成',
   },
   {
@@ -273,6 +451,9 @@ export const RADAR_EVENTS = [
     title: 'Zilebesiran 进入 III期心血管结局试验 ZENITH',
     summary: 'Alnylam 与 Roche 宣布推进 zilebesiran 进入全球 III期结局试验 ZENITH，计划入组约 11,000 名未控制高血压合并已确诊心血管疾病或高危的患者，比较每半年注射一次 zilebesiran 300 mg 与安慰剂的心血管事件。',
     source: 'Alnylam / Roche 公告（2025-08）',
+    sourceLinks: [
+      { label: 'Roche / Alnylam 公告（2025-08-30）', url: 'https://www.roche.com/media/releases/med-cor-2025-08-30' },
+    ],
     drug: 'Zilebesiran', target: 'AGT', tech: 'siRNA', stage: 'III期进行中',
   },
   {
@@ -280,6 +461,9 @@ export const RADAR_EVENTS = [
     title: 'KARDIA-2 试验结果发表：zilebesiran 联合常用降压药仍有效',
     summary: '在单药控制不佳的高血压患者中，单次注射 zilebesiran 300 mg 联合吲达帕胺、氨氯地平或奥美沙坦，3 个月时日间动态收缩压安慰剂校正下降约 8.7–12.1 mmHg，效果持续至 6 个月，三组背景用药结果一致。',
     source: 'KARDIA-2 试验（JAMA 2025）',
+    sourceLinks: [
+      { label: 'KARDIA-2（JAMA 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40434761/' },
+    ],
     drug: 'Zilebesiran', target: 'AGT', tech: 'siRNA', stage: 'III期进行中',
   },
   {
@@ -287,6 +471,10 @@ export const RADAR_EVENTS = [
     title: 'Aprocitentan 获美国 FDA 批准用于难治性高血压',
     summary: 'Aprocitentan（商品名 Tryvio）成为首个获批用于难治性高血压的双重内皮素受体拮抗剂。PRECISION 试验中，4 周时诊室收缩压安慰剂校正下降约 3.8 mmHg，效果持续至 48 周。',
     source: 'FDA 批准公告（2024-03）；PRECISION 试验（Lancet 2022）',
+    sourceLinks: [
+      { label: 'FDA 新药批准 2024', url: 'https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2024' },
+      { label: 'PRECISION（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36356632/' },
+    ],
     drug: 'Aprocitentan', target: '内皮素受体', tech: '小分子', stage: '已上市',
   },
   {
@@ -294,6 +482,9 @@ export const RADAR_EVENTS = [
     title: 'KARDIA-1 试验结果发表：降压 siRNA 单次注射降压持续半年',
     summary: '377 名轻中度高血压患者单次皮下注射 zilebesiran 150、300 或 600 mg，3 个月时 24 小时动态收缩压安慰剂校正下降分别为 14.1、16.7 和 15.7 mmHg，效果持续至 6 个月，血清血管紧张素原下降超过 90%。',
     source: 'KARDIA-1 试验（JAMA 2024）',
+    sourceLinks: [
+      { label: 'KARDIA-1（JAMA 2024）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/38363577/' },
+    ],
     drug: 'Zilebesiran', target: 'AGT', tech: 'siRNA', stage: 'III期进行中',
   },
   {
@@ -301,6 +492,10 @@ export const RADAR_EVENTS = [
     title: '美国 FDA 批准两款肾去神经术器械',
     summary: 'FDA 批准 Medtronic Symplicity Spyral 与 Recor Paradise 两款肾去神经术器械，用于难治性高血压的器械治疗。多项随机对照试验显示，肾去神经术组诊室收缩压较对照组多降约 5–10 mmHg。',
     source: 'FDA 批准公告（2023-11）；SPYRAL HTN-ON MED、RADIANCE-HTN 试验',
+    sourceLinks: [
+      { label: 'FDA 批准公告（2023-11）', url: 'https://www.fda.gov/news-events/press-announcements/fda-roundup-november-17-2023' },
+      { label: 'SPYRAL HTN-ON MED（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/35390320/' },
+    ],
     drug: '肾去神经术', target: '肾交感神经', tech: '器械', stage: '已上市',
   },
   {
@@ -308,6 +503,9 @@ export const RADAR_EVENTS = [
     title: 'OCEAN(a)-DOSE 试验结果发表：olpasiran 使 Lp(a) 下降超过 95%',
     summary: '281 名已确诊动脉粥样硬化性心血管疾病且 Lp(a) 升高的患者中，olpasiran 高剂量组 36 周时 Lp(a) 安慰剂校正降幅达 -97.4%（75 mg 组）至 -101.1%（225 mg 每 12 周组），接近完全抑制。心血管结局试验 OCEAN(a)-Outcomes 随后启动。',
     source: 'OCEAN(a)-DOSE 试验（NEJM 2023）',
+    sourceLinks: [
+      { label: 'OCEAN(a)-DOSE · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=OCEAN%28a%29-DOSE+olpasiran' },
+    ],
     drug: 'Olpasiran', target: 'LPA', tech: 'siRNA', stage: 'III期进行中',
   },
   {
@@ -315,6 +513,10 @@ export const RADAR_EVENTS = [
     title: 'CLEAR Outcomes 试验结果发表：贝派地酸降低心血管事件',
     summary: '13,970 名他汀不耐受患者中，贝派地酸 180 mg 每日一次，四组分主要心血管事件发生率 11.7%，安慰剂组 13.3%，风险比 HR 0.87；三组分次要终点 HR 0.85；6 个月 LDL-C 降幅约 21%。',
     source: 'CLEAR Outcomes 试验（NEJM 2023），ClinicalTrials.gov NCT02993406',
+    sourceLinks: [
+      { label: 'CLEAR Outcomes（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36876740/' },
+      { label: 'ClinicalTrials.gov NCT02993406', url: 'https://clinicaltrials.gov/study/NCT02993406' },
+    ],
     drug: '贝派地酸', target: 'ACL', tech: '小分子', stage: '已上市',
   },
   {
@@ -322,6 +524,9 @@ export const RADAR_EVENTS = [
     title: 'BrigHTN II期试验结果发表：baxdrostat 用于难治性高血压',
     summary: '248 名难治性高血压患者中，baxdrostat 2 mg 组 12 周时诊室收缩压安慰剂校正下降约 11 mmHg，醛固酮被抑制，治疗剂量下未见皮质醇合成受影响，为后续 III期试验奠定基础。',
     source: 'BrigHTN 试验（NEJM 2023）',
+    sourceLinks: [
+      { label: 'BrigHTN（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36342143/' },
+    ],
     drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: 'III期完成',
   },
   {
@@ -329,6 +534,9 @@ export const RADAR_EVENTS = [
     title: 'ORION-10 / ORION-11 试验结果发表：英克司兰 LDL-C 降幅约 50%',
     summary: '两项 III期试验中，英克司兰维持期每半年皮下注射一次，LDL-C 降幅约 50%，耐受性总体良好。心血管结局试验 ORION-4 正在进行中，尚未公布关键结果。',
     source: 'ORION-10 / ORION-11 试验（NEJM 2020）',
+    sourceLinks: [
+      { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
+    ],
     drug: '英克司兰', target: 'PCSK9', tech: 'siRNA', stage: '已上市',
   },
 ];
@@ -337,49 +545,154 @@ export const RADAR_EVENTS = [
 // status: 已完成（结果已公布） | 已完成（主要终点未达到） | 进行中 | 已完成
 // 只有三个试验写了已核实的 ClinicalTrials.gov 编号，其余只写试验名。
 export const TRIALS = [
-  { id: 't1', trial: 'BaxHTN', drug: 'Baxdrostat', phase: 'III期', indication: '未控制 / 难治性高血压', endpoint: '12 周诊室收缩压较基线变化', status: '已完成（结果已公布）', result: '2 mg 组较基线 -15.7 mmHg，安慰剂校正 -9.8 mmHg（NEJM 2025）', nct: 'NCT06034743', changeLog: '2023-02 II期 BrigHTN 发表 → 2025-08 III期结果公布（NEJM）→ 2026-11 获 EMA CHMP 积极意见。' },
-  { id: 't2', trial: 'Bax24', drug: 'Baxdrostat', phase: 'III期', indication: '难治性高血压', endpoint: '12 周 24 小时动态收缩压变化', status: '已完成（结果已公布）', result: '2 mg 组 24 小时动态收缩压较基线 -16.6 mmHg，安慰剂校正 -14.0 mmHg（Lancet 2025）', nct: '', changeLog: '2025 年完成并公布结果；与 BaxHTN 共同支撑监管审评。' },
-  { id: 't3', trial: 'BrigHTN', drug: 'Baxdrostat', phase: 'II期', indication: '难治性高血压', endpoint: '12 周诊室收缩压变化', status: '已完成（结果已公布）', result: '2 mg 组安慰剂校正下降约 11 mmHg（NEJM 2023）', nct: '', changeLog: '2023-02 结果发表；HALO 试验（未控制高血压）同期未达主要终点。' },
-  { id: 't4', trial: 'KARDIA-1', drug: 'Zilebesiran', phase: 'II期', indication: '轻中度高血压', endpoint: '3 个月 24 小时平均收缩压变化', status: '已完成（结果已公布）', result: '300 mg 组安慰剂校正 -16.7 mmHg，效果持续至 6 个月（JAMA 2024）', nct: '', changeLog: '2024-02 结果发表 → 2025 年进入 III期 ZENITH。' },
-  { id: 't5', trial: 'KARDIA-2', drug: 'Zilebesiran', phase: 'II期', indication: '单药控制不佳的高血压', endpoint: '3 个月日间动态收缩压变化', status: '已完成（结果已公布）', result: '联合背景用药，安慰剂校正下降约 8.7–12.1 mmHg（JAMA 2025）', nct: '', changeLog: '2025-03 结果发表。' },
-  { id: 't6', trial: 'ZENITH', drug: 'Zilebesiran', phase: 'III期', indication: '未控制高血压合并心血管疾病或高危', endpoint: '主要心血管事件（MACE）', status: '进行中', result: '在研中，尚未公布关键结果', nct: '', changeLog: '2025-08 启动，计划入组约 11,000 人，覆盖约 35 个国家。' },
-  { id: 't7', trial: 'ORION-10 / ORION-11', drug: '英克司兰', phase: 'III期', indication: '动脉粥样硬化性心血管疾病 / 高危', endpoint: 'LDL-C 降幅', status: '已完成（结果已公布）', result: 'LDL-C 降幅约 50%（NEJM 2020）', nct: '', changeLog: '2020-03 结果发表；结局试验 ORION-4 进行中，尚未公布关键结果。' },
-  { id: 't8', trial: 'FOURIER', drug: '依洛尤单抗', phase: 'III期', indication: '已确诊动脉粥样硬化性心血管疾病', endpoint: '主要心血管事件（MACE）', status: '已完成（结果已公布）', result: 'LDL-C 降幅约 59%，MACE HR 0.85（NEJM 2017）', nct: '', changeLog: '2017 年结果发表；长期随访持续进行中。' },
-  { id: 't9', trial: 'ODYSSEY OUTCOMES', drug: '阿利西尤单抗', phase: 'III期', indication: '急性冠脉综合征后', endpoint: '主要心血管事件（MACE）', status: '已完成（结果已公布）', result: 'MACE HR 0.85（NEJM 2018）', nct: '', changeLog: '2018 年结果发表。' },
-  { id: 't10', trial: 'CLEAR Outcomes', drug: '贝派地酸', phase: 'III期', indication: '他汀不耐受', endpoint: '四组分 MACE', status: '已完成（结果已公布）', result: '四组分 MACE HR 0.87（11.7% vs 13.3%），三组分 MACE HR 0.85（NEJM 2023）', nct: 'NCT02993406', changeLog: '2023-04 结果发表；13,970 名患者，中位随访 40.6 个月。' },
-  { id: 't11', trial: 'Lp(a)HORIZON', drug: 'Pelacarsen', phase: 'III期', indication: '已确诊心血管疾病且 Lp(a) 升高', endpoint: '主要心血管事件（MACE）', status: '已完成（主要终点未达到）', result: '主要终点 12.3% vs 12.1%，HR 1.02（NEJM 2026-11-07）；开发项目已终止', nct: 'NCT04023552', changeLog: '2026-09 申办方公布 topline 未达终点 → 2026-11-07 AHA 大会公布完整结果并发表于 NEJM → 诺华宣布终止 ASCVD 开发项目。' },
-  { id: 't12', trial: 'OCEAN(a)-DOSE', drug: 'Olpasiran', phase: 'II期', indication: '已确诊动脉粥样硬化性心血管疾病且 Lp(a) 升高', endpoint: 'Lp(a) 降幅', status: '已完成（结果已公布）', result: '高剂量组 Lp(a) 降幅超过 95%（NEJM 2023）；结局试验 OCEAN(a)-Outcomes 进行中', nct: '', changeLog: '2023-11 结果发表 → III期 OCEAN(a)-Outcomes 进行中，尚未公布关键结果。' },
-  { id: 't13', trial: 'ACCLAIM-Lp(a)', drug: 'Lepodisiran', phase: 'III期', indication: '动脉粥样硬化性心血管疾病或高危', endpoint: '主要心血管事件（MACE）', status: '进行中', result: '在研中，尚未公布关键结果', nct: '', changeLog: 'II期显示 Lp(a) 降幅约 94% 且持续 12 个月以上；III期进行中。' },
-  { id: 't14', trial: 'PRECISION', drug: 'Aprocitentan', phase: 'III期', indication: '难治性高血压', endpoint: '4 周诊室收缩压变化', status: '已完成（结果已公布）', result: '安慰剂校正下降约 3.8 mmHg，效果持续至 48 周（Lancet 2022）；2024-03 美国 FDA 批准', nct: '', changeLog: '2022 年结果发表 → 2024-03 FDA 批准用于难治性高血压。' },
-  { id: 't15', trial: 'SPYRAL HTN-ON MED / RADIANCE-HTN', drug: '肾去神经术', phase: 'II–III期', indication: '难治性 / 轻中度高血压', endpoint: '诊室与动态收缩压变化', status: '已完成（结果已公布）', result: '诊室收缩压较对照组多降约 5–10 mmHg；2023-11 美国 FDA 批准两款器械', nct: '', changeLog: '多项试验陆续发表 → 2023-11 FDA 批准器械，纳入临床可选方案。' },
+  { id: 't1', trial: 'BaxHTN', drug: 'Baxdrostat', phase: 'III期', indication: '未控制 / 难治性高血压', endpoint: '12 周诊室收缩压较基线变化', status: '已完成（结果已公布）', result: '2 mg 组较基线 -15.7 mmHg，安慰剂校正 -9.8 mmHg（NEJM 2025）', nct: 'NCT06034743', changeLog: '2023-02 II期 BrigHTN 发表 → 2025-08 III期结果公布（NEJM）→ 2026-11 获 EMA CHMP 积极意见。',
+     sourceLinks: [
+      { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+      { label: 'ClinicalTrials.gov NCT06034743', url: 'https://clinicaltrials.gov/study/NCT06034743' },
+    ], },
+  { id: 't2', trial: 'Bax24', drug: 'Baxdrostat', phase: 'III期', indication: '难治性高血压', endpoint: '12 周 24 小时动态收缩压变化', status: '已完成（结果已公布）', result: '2 mg 组 24 小时动态收缩压较基线 -16.6 mmHg，安慰剂校正 -14.0 mmHg（Lancet 2025）', nct: '', changeLog: '2025 年完成并公布结果；与 BaxHTN 共同支撑监管审评。',
+     sourceLinks: [
+      { label: 'Bax24（Lancet 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/41794437/' },
+    ], },
+  { id: 't3', trial: 'BrigHTN', drug: 'Baxdrostat', phase: 'II期', indication: '难治性高血压', endpoint: '12 周诊室收缩压变化', status: '已完成（结果已公布）', result: '2 mg 组安慰剂校正下降约 11 mmHg（NEJM 2023）', nct: '', changeLog: '2023-02 结果发表；HALO 试验（未控制高血压）同期未达主要终点。',
+     sourceLinks: [
+      { label: 'BrigHTN（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36342143/' },
+    ], },
+  { id: 't4', trial: 'KARDIA-1', drug: 'Zilebesiran', phase: 'II期', indication: '轻中度高血压', endpoint: '3 个月 24 小时平均收缩压变化', status: '已完成（结果已公布）', result: '300 mg 组安慰剂校正 -16.7 mmHg，效果持续至 6 个月（JAMA 2024）', nct: '', changeLog: '2024-02 结果发表 → 2025 年进入 III期 ZENITH。',
+     sourceLinks: [
+      { label: 'KARDIA-1（JAMA 2024）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/38363577/' },
+    ], },
+  { id: 't5', trial: 'KARDIA-2', drug: 'Zilebesiran', phase: 'II期', indication: '单药控制不佳的高血压', endpoint: '3 个月日间动态收缩压变化', status: '已完成（结果已公布）', result: '联合背景用药，安慰剂校正下降约 8.7–12.1 mmHg（JAMA 2025）', nct: '', changeLog: '2025-03 结果发表。',
+     sourceLinks: [
+      { label: 'KARDIA-2（JAMA 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40434761/' },
+    ], },
+  { id: 't6', trial: 'ZENITH', drug: 'Zilebesiran', phase: 'III期', indication: '未控制高血压合并心血管疾病或高危', endpoint: '主要心血管事件（MACE）', status: '进行中', result: '在研中，尚未公布关键结果', nct: '', changeLog: '2025-08 启动，计划入组约 11,000 人，覆盖约 35 个国家。',
+     sourceLinks: [
+      { label: 'Roche / Alnylam 公告（2025-08-30）', url: 'https://www.roche.com/media/releases/med-cor-2025-08-30' },
+    ], },
+  { id: 't7', trial: 'ORION-10 / ORION-11', drug: '英克司兰', phase: 'III期', indication: '动脉粥样硬化性心血管疾病 / 高危', endpoint: 'LDL-C 降幅', status: '已完成（结果已公布）', result: 'LDL-C 降幅约 50%（NEJM 2020）', nct: '', changeLog: '2020-03 结果发表；结局试验 ORION-4 进行中，尚未公布关键结果。',
+     sourceLinks: [
+      { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
+    ], },
+  { id: 't8', trial: 'FOURIER', drug: '依洛尤单抗', phase: 'III期', indication: '已确诊动脉粥样硬化性心血管疾病', endpoint: '主要心血管事件（MACE）', status: '已完成（结果已公布）', result: 'LDL-C 降幅约 59%，MACE HR 0.85（NEJM 2017）', nct: '', changeLog: '2017 年结果发表；长期随访持续进行中。',
+     sourceLinks: [
+      { label: 'FOURIER（NEJM 2017）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/28304224/' },
+    ], },
+  { id: 't9', trial: 'ODYSSEY OUTCOMES', drug: '阿利西尤单抗', phase: 'III期', indication: '急性冠脉综合征后', endpoint: '主要心血管事件（MACE）', status: '已完成（结果已公布）', result: 'MACE HR 0.85（NEJM 2018）', nct: '', changeLog: '2018 年结果发表。',
+     sourceLinks: [
+      { label: 'ODYSSEY OUTCOMES（NEJM 2018）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/30403574/' },
+    ], },
+  { id: 't10', trial: 'CLEAR Outcomes', drug: '贝派地酸', phase: 'III期', indication: '他汀不耐受', endpoint: '四组分 MACE', status: '已完成（结果已公布）', result: '四组分 MACE HR 0.87（11.7% vs 13.3%），三组分 MACE HR 0.85（NEJM 2023）', nct: 'NCT02993406', changeLog: '2023-04 结果发表；13,970 名患者，中位随访 40.6 个月。',
+     sourceLinks: [
+      { label: 'CLEAR Outcomes（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36876740/' },
+      { label: 'ClinicalTrials.gov NCT02993406', url: 'https://clinicaltrials.gov/study/NCT02993406' },
+    ], },
+  { id: 't11', trial: 'Lp(a)HORIZON', drug: 'Pelacarsen', phase: 'III期', indication: '已确诊心血管疾病且 Lp(a) 升高', endpoint: '主要心血管事件（MACE）', status: '已完成（主要终点未达到）', result: '主要终点 12.3% vs 12.1%，HR 1.02（NEJM 2026-11-07）；开发项目已终止', nct: 'NCT04023552', changeLog: '2026-09 申办方公布 topline 未达终点 → 2026-11-07 AHA 大会公布完整结果并发表于 NEJM → 诺华宣布终止 ASCVD 开发项目。',
+     sourceLinks: [
+      { label: 'Lp(a)HORIZON（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43001734/' },
+      { label: 'ClinicalTrials.gov NCT04023552', url: 'https://clinicaltrials.gov/study/NCT04023552' },
+    ], },
+  { id: 't12', trial: 'OCEAN(a)-DOSE', drug: 'Olpasiran', phase: 'II期', indication: '已确诊动脉粥样硬化性心血管疾病且 Lp(a) 升高', endpoint: 'Lp(a) 降幅', status: '已完成（结果已公布）', result: '高剂量组 Lp(a) 降幅超过 95%（NEJM 2023）；结局试验 OCEAN(a)-Outcomes 进行中', nct: '', changeLog: '2023-11 结果发表 → III期 OCEAN(a)-Outcomes 进行中，尚未公布关键结果。',
+     sourceLinks: [
+      { label: 'OCEAN(a)-DOSE · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=OCEAN%28a%29-DOSE+olpasiran' },
+    ], },
+  { id: 't13', trial: 'ACCLAIM-Lp(a)', drug: 'Lepodisiran', phase: 'III期', indication: '动脉粥样硬化性心血管疾病或高危', endpoint: '主要心血管事件（MACE）', status: '进行中', result: '在研中，尚未公布关键结果', nct: '', changeLog: 'II期显示 Lp(a) 降幅约 94% 且持续 12 个月以上；III期进行中。',
+     sourceLinks: [
+      { label: 'ACCLAIM-Lp(a) · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=ACCLAIM-Lp%28a%29+lepodisiran' },
+    ], },
+  { id: 't14', trial: 'PRECISION', drug: 'Aprocitentan', phase: 'III期', indication: '难治性高血压', endpoint: '4 周诊室收缩压变化', status: '已完成（结果已公布）', result: '安慰剂校正下降约 3.8 mmHg，效果持续至 48 周（Lancet 2022）；2024-03 美国 FDA 批准', nct: '', changeLog: '2022 年结果发表 → 2024-03 FDA 批准用于难治性高血压。',
+     sourceLinks: [
+      { label: 'PRECISION（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36356632/' },
+    ], },
+  { id: 't15', trial: 'SPYRAL HTN-ON MED / RADIANCE-HTN', drug: '肾去神经术', phase: 'II–III期', indication: '难治性 / 轻中度高血压', endpoint: '诊室与动态收缩压变化', status: '已完成（结果已公布）', result: '诊室收缩压较对照组多降约 5–10 mmHg；2023-11 美国 FDA 批准两款器械', nct: '', changeLog: '多项试验陆续发表 → 2023-11 FDA 批准器械，纳入临床可选方案。',
+     sourceLinks: [
+      { label: 'SPYRAL HTN-ON MED（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/35390320/' },
+      { label: 'RADIANCE-HTN SOLO（Lancet 2018）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/29803590/' },
+    ], },
 ];
 
 // ---------------- 医学证据分析 ----------------
 export const EVIDENCE_SBP = [
-  { drug: 'Baxdrostat 2 mg（BaxHTN）', population: '未控制 / 难治性高血压', result: '安慰剂校正 -9.8 mmHg（12 周诊室 SBP）', type: '替代终点', source: 'NEJM 2025' },
-  { drug: 'Zilebesiran 300 mg（KARDIA-1）', population: '轻中度高血压', result: '安慰剂校正 -16.7 mmHg（3 个月 24 h 动态 SBP）', type: '替代终点', source: 'JAMA 2024' },
-  { drug: 'Aprocitentan（PRECISION）', population: '难治性高血压', result: '安慰剂校正约 -3.8 mmHg（4 周诊室 SBP）', type: '替代终点', source: 'Lancet 2022' },
-  { drug: '肾去神经术（SPYRAL / RADIANCE）', population: '难治性 / 轻中度高血压', result: '较对照组多降约 5–10 mmHg（诊室 SBP）', type: '替代终点', source: 'SPYRAL HTN-ON MED、RADIANCE-HTN' },
-  { drug: '常用单药（ACEI / ARB / CCB / 利尿剂）', population: '高血压', result: '平均降收缩压约 10 mmHg', type: '替代终点', source: '荟萃分析；《中国高血压防治指南（2024 年修订版）》' },
+  { drug: 'Baxdrostat 2 mg（BaxHTN）', population: '未控制 / 难治性高血压', result: '安慰剂校正 -9.8 mmHg（12 周诊室 SBP）', type: '替代终点', source: 'NEJM 2025',
+    sourceLinks: [
+      { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+    ], },
+  { drug: 'Zilebesiran 300 mg（KARDIA-1）', population: '轻中度高血压', result: '安慰剂校正 -16.7 mmHg（3 个月 24 h 动态 SBP）', type: '替代终点', source: 'JAMA 2024',
+    sourceLinks: [
+      { label: 'KARDIA-1（JAMA 2024）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/38363577/' },
+    ], },
+  { drug: 'Aprocitentan（PRECISION）', population: '难治性高血压', result: '安慰剂校正约 -3.8 mmHg（4 周诊室 SBP）', type: '替代终点', source: 'Lancet 2022',
+    sourceLinks: [
+      { label: 'PRECISION（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36356632/' },
+    ], },
+  { drug: '肾去神经术（SPYRAL / RADIANCE）', population: '难治性 / 轻中度高血压', result: '较对照组多降约 5–10 mmHg（诊室 SBP）', type: '替代终点', source: 'SPYRAL HTN-ON MED、RADIANCE-HTN',
+    sourceLinks: [
+      { label: 'SPYRAL HTN-ON MED（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/35390320/' },
+      { label: 'RADIANCE-HTN SOLO（Lancet 2018）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/29803590/' },
+    ], },
+  { drug: '常用单药（ACEI / ARB / CCB / 利尿剂）', population: '高血压', result: '平均降收缩压约 10 mmHg', type: '替代终点', source: '荟萃分析；《中国高血压防治指南（2024 年修订版）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ], },
 ];
 
 export const EVIDENCE_LDL = [
-  { drug: '高强度他汀', result: 'LDL-C 降幅 ≥ 50%', note: '一线基础治疗', source: '《中国血脂管理指南（2023 年）》' },
-  { drug: '依折麦布（单药）', result: 'LDL-C 降幅约 18%–25%', note: '常与他汀联用', source: '药品说明书；IMPROVE-IT' },
-  { drug: 'PCSK9 单抗（依洛尤 / 阿利西尤）', result: 'LDL-C 降幅约 50%–60%', note: '皮下注射，两周或一月一次', source: 'FOURIER、ODYSSEY OUTCOMES' },
-  { drug: '英克司兰（siRNA）', result: 'LDL-C 降幅约 50%', note: '维持期半年注射一次', source: 'ORION-10 / ORION-11（NEJM 2020）' },
-  { drug: '贝派地酸', result: 'LDL-C 降幅约 21%（6 个月）', note: '他汀不耐受人群', source: 'CLEAR Outcomes（NEJM 2023）' },
-  { drug: '依维那库单抗', result: 'LDL-C 降幅约 49%（HoFH）', note: '纯合子家族性高胆固醇血症', source: 'ELIPSE（NEJM 2020）' },
-  { drug: 'Obicetrapib（在研）', result: 'LDL-C 降幅约 40%', note: 'III期结局试验进行中', source: 'BROOKLYN / BROADWAY' },
+  { drug: '高强度他汀', result: 'LDL-C 降幅 ≥ 50%', note: '一线基础治疗', source: '《中国血脂管理指南（2023 年）》',
+    sourceLinks: [
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ], },
+  { drug: '依折麦布（单药）', result: 'LDL-C 降幅约 18%–25%', note: '常与他汀联用', source: '药品说明书；IMPROVE-IT',
+    sourceLinks: [
+      { label: 'IMPROVE-IT（NEJM 2015）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/26039521/' },
+    ], },
+  { drug: 'PCSK9 单抗（依洛尤 / 阿利西尤）', result: 'LDL-C 降幅约 50%–60%', note: '皮下注射，两周或一月一次', source: 'FOURIER、ODYSSEY OUTCOMES',
+    sourceLinks: [
+      { label: 'FOURIER（NEJM 2017）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/28304224/' },
+      { label: 'ODYSSEY OUTCOMES（NEJM 2018）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/30403574/' },
+    ], },
+  { drug: '英克司兰（siRNA）', result: 'LDL-C 降幅约 50%', note: '维持期半年注射一次', source: 'ORION-10 / ORION-11（NEJM 2020）',
+    sourceLinks: [
+      { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
+    ], },
+  { drug: '贝派地酸', result: 'LDL-C 降幅约 21%（6 个月）', note: '他汀不耐受人群', source: 'CLEAR Outcomes（NEJM 2023）',
+    sourceLinks: [
+      { label: 'CLEAR Outcomes（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36876740/' },
+    ], },
+  { drug: '依维那库单抗', result: 'LDL-C 降幅约 49%（HoFH）', note: '纯合子家族性高胆固醇血症', source: 'ELIPSE（NEJM 2020）',
+    sourceLinks: [
+      { label: 'ELIPSE（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32813947/' },
+    ], },
+  { drug: 'Obicetrapib（在研）', result: 'LDL-C 降幅约 40%', note: 'III期结局试验进行中', source: 'BROOKLYN / BROADWAY',
+    sourceLinks: [
+      { label: 'BROOKLYN（Nat Med 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/41760952/' },
+    ], },
 ];
 
 export const EVIDENCE_MACE = [
-  { drug: '依洛尤单抗（FOURIER）', result: 'HR 0.85', note: '主要心血管事件风险下降约 15%', source: 'NEJM 2017' },
-  { drug: '阿利西尤单抗（ODYSSEY OUTCOMES）', result: 'HR 0.85', note: '主要心血管事件风险下降约 15%', source: 'NEJM 2018' },
-  { drug: '贝派地酸（CLEAR Outcomes）', result: 'HR 0.87（四组分）/ 0.85（三组分）', note: '他汀不耐受人群', source: 'NEJM 2023' },
-  { drug: '依折麦布 + 他汀（IMPROVE-IT）', result: 'HR 0.936', note: '急性冠脉综合征后', source: 'NEJM 2015' },
-  { drug: 'Pelacarsen（Lp(a)HORIZON）', result: 'HR 1.02（未达终点）', note: 'Lp(a) 下降约 78% 但事件未减少', source: 'NEJM 2026-11-07' },
-  { drug: '收缩压每降 10 mmHg（荟萃分析）', result: '主要心血管事件风险比约 0.80', note: '降压治疗的硬终点获益', source: '荟萃分析（Ettehad 等，Lancet 2016）' },
+  { drug: '依洛尤单抗（FOURIER）', result: 'HR 0.85', note: '主要心血管事件风险下降约 15%', source: 'NEJM 2017',
+    sourceLinks: [
+      { label: 'FOURIER（NEJM 2017）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/28304224/' },
+    ], },
+  { drug: '阿利西尤单抗（ODYSSEY OUTCOMES）', result: 'HR 0.85', note: '主要心血管事件风险下降约 15%', source: 'NEJM 2018',
+    sourceLinks: [
+      { label: 'ODYSSEY OUTCOMES（NEJM 2018）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/30403574/' },
+    ], },
+  { drug: '贝派地酸（CLEAR Outcomes）', result: 'HR 0.87（四组分）/ 0.85（三组分）', note: '他汀不耐受人群', source: 'NEJM 2023',
+    sourceLinks: [
+      { label: 'CLEAR Outcomes（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36876740/' },
+    ], },
+  { drug: '依折麦布 + 他汀（IMPROVE-IT）', result: 'HR 0.936', note: '急性冠脉综合征后', source: 'NEJM 2015',
+    sourceLinks: [
+      { label: 'IMPROVE-IT（NEJM 2015）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/26039521/' },
+    ], },
+  { drug: 'Pelacarsen（Lp(a)HORIZON）', result: 'HR 1.02（未达终点）', note: 'Lp(a) 下降约 78% 但事件未减少', source: 'NEJM 2026-11-07',
+    sourceLinks: [
+      { label: 'Lp(a)HORIZON（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43001734/' },
+    ], },
+  { drug: '收缩压每降 10 mmHg（荟萃分析）', result: '主要心血管事件风险比约 0.80', note: '降压治疗的硬终点获益', source: '荟萃分析（Ettehad 等，Lancet 2016）',
+    sourceLinks: [
+      { label: 'Ettehad 等（Lancet 2016）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/26724178/' },
+    ], },
 ];
 
 export const EVIDENCE_NOTE =

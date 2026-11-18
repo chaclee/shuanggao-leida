@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Alert, Card, Table, Tabs, Typography } from 'antd';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { EVIDENCE_LDL, EVIDENCE_MACE, EVIDENCE_NOTE, EVIDENCE_SBP } from '../data/frontier';
+import SourceLinks from './SourceLinks';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -59,7 +60,7 @@ export default function EvidencePage() {
               { title: '人群', dataIndex: 'population', key: 'population' },
               { title: '结果', dataIndex: 'result', key: 'result' },
               { title: '终点类型', dataIndex: 'type', key: 'type' },
-              { title: '来源', dataIndex: 'source', key: 'source' },
+              { title: '来源', dataIndex: 'source', key: 'source', render: (v, r) => (<span><div>{v}</div><SourceLinks links={r.sourceLinks} prefix="链接" style={{ fontSize: 12 }} /></span>) },
             ]}
           />
         </div>
@@ -84,7 +85,7 @@ export default function EvidencePage() {
               { title: '药物', dataIndex: 'drug', key: 'drug' },
               { title: 'LDL-C 降幅', dataIndex: 'result', key: 'result', render: (v) => <Text strong>{v}</Text> },
               { title: '备注', dataIndex: 'note', key: 'note' },
-              { title: '来源', dataIndex: 'source', key: 'source' },
+              { title: '来源', dataIndex: 'source', key: 'source', render: (v, r) => (<span><div>{v}</div><SourceLinks links={r.sourceLinks} prefix="链接" style={{ fontSize: 12 }} /></span>) },
             ]}
           />
         </div>
@@ -101,7 +102,7 @@ export default function EvidencePage() {
               { title: '药物 / 试验', dataIndex: 'drug', key: 'drug' },
               { title: 'MACE 风险比', dataIndex: 'result', key: 'result', render: (v) => <Text strong>{v}</Text> },
               { title: '说明', dataIndex: 'note', key: 'note' },
-              { title: '来源', dataIndex: 'source', key: 'source' },
+              { title: '来源', dataIndex: 'source', key: 'source', render: (v, r) => (<span><div>{v}</div><SourceLinks links={r.sourceLinks} prefix="链接" style={{ fontSize: 12 }} /></span>) },
             ]}
           />
         </div>

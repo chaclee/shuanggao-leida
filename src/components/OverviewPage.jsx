@@ -103,7 +103,19 @@ export default function OverviewPage({ onGo }) {
         <List
           size="small"
           dataSource={SOURCES}
-          renderItem={(s) => <List.Item><Text strong>{s.name}</Text><Text type="secondary" style={{ marginLeft: 8 }}>{s.note}</Text></List.Item>}
+          renderItem={(s) => (
+            <List.Item>
+              {s.url ? (
+                <a href={s.url} target="_blank" rel="noopener noreferrer"><Text strong>{s.name}</Text></a>
+              ) : (
+                <Text strong>{s.name}</Text>
+              )}
+              <Text type="secondary" style={{ marginLeft: 8 }}>{s.note}</Text>
+              {s.extraUrls && s.extraUrls.map((x) => (
+                <a key={x.url} href={x.url} target="_blank" rel="noopener noreferrer" style={{ marginLeft: 8 }}>{x.label}</a>
+              ))}
+            </List.Item>
+          )}
         />
         <Paragraph type="secondary" style={{ marginTop: 12, fontSize: 12 }}>
           特别说明：本站未接入中国 CDE 试验登记数据（反自动化限制），中国在研管线以 NMPA 与企业公告为准；

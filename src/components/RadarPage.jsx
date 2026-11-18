@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Card, Col, Input, Row, Select, Tag, Typography } from 'antd';
 import { RADAR_EVENTS } from '../data/frontier';
+import { SourceText } from './SourceLinks';
 
 const { Title, Paragraph, Text } = Typography;
 const TYPE_COLORS = { '试验推进': 'blue', '结果公布': 'green', '获批': 'gold', '失败/未达终点': 'red', '指南更新': 'purple' };
@@ -46,7 +47,9 @@ export default function RadarPage() {
             {e.tech !== '—' && <Tag>技术：{e.tech}</Tag>}
           </Paragraph>
           <Paragraph>{e.summary}</Paragraph>
-          <Paragraph type="secondary" style={{ fontSize: 12 }}>原始出处：{e.source}</Paragraph>
+          <Paragraph type="secondary" style={{ fontSize: 12 }}>
+            原始出处：<SourceText text={e.source} links={e.sourceLinks} />
+          </Paragraph>
         </Card>
       ))}
       {!filtered.length && <Paragraph type="secondary">没有找到相关事件，换个关键词或筛选条件试试。</Paragraph>}

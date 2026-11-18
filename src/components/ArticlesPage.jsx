@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Alert, Card, Col, Input, List, Row, Tag, Typography } from 'antd';
 import { ARTICLES } from '../data/articles';
+import { SourceText } from './SourceLinks';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -51,7 +52,9 @@ export default function ArticlesPage() {
           {open.body.map((p, i) => <Paragraph key={i}>{p}</Paragraph>)}
           <Title level={5}>要点</Title>
           <List size="small" dataSource={open.points} renderItem={(p) => <List.Item>· {p}</List.Item>} />
-          <Paragraph type="secondary" style={{ marginTop: 16 }}>依据来源：{open.source}</Paragraph>
+          <Paragraph type="secondary" style={{ marginTop: 16 }}>
+            依据来源：<SourceText text={open.source} links={open.sourceLinks} />
+          </Paragraph>
         </Card>
       ) : (
         <Row gutter={[16, 16]}>
@@ -59,7 +62,9 @@ export default function ArticlesPage() {
             <Col xs={24} sm={12} key={a.id}>
               <Card hoverable title={a.title} onClick={() => setOpenId(a.id)} extra={<Tag color="blue">{a.category}</Tag>}>
                 <Paragraph ellipsis={{ rows: 2 }}>{a.body[0]}</Paragraph>
-                <Text type="secondary" style={{ fontSize: 12 }}>来源：{a.source}</Text>
+                <Text type="secondary" style={{ fontSize: 12 }}>
+                  来源：<SourceText text={a.source} links={a.sourceLinks} />
+                </Text>
               </Card>
             </Col>
           ))}

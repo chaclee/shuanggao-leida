@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Card, Col, Input, Row, Select, Table, Tag, Typography } from 'antd';
 import { TRIALS } from '../data/frontier';
+import SourceLinks from './SourceLinks';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -45,7 +46,13 @@ export default function TrialsPage() {
             <div>
               <Paragraph><Text strong>结果登记：</Text>{t.result}</Paragraph>
               <Paragraph><Text strong>变更记录：</Text>{t.changeLog}</Paragraph>
-              {t.nct && <Paragraph type="secondary">ClinicalTrials.gov 编号：{t.nct}</Paragraph>}
+              {t.nct && (
+                <Paragraph type="secondary">
+                  ClinicalTrials.gov 编号：
+                  <a href={`https://clinicaltrials.gov/study/${t.nct}`} target="_blank" rel="noopener noreferrer">{t.nct}</a>
+                </Paragraph>
+              )}
+              <Paragraph style={{ fontSize: 12 }}><SourceLinks links={t.sourceLinks} /></Paragraph>
             </div>
           ),
         }}

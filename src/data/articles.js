@@ -7,6 +7,9 @@ export const ARTICLES = [
     category: '基础',
     title: '高血压是什么？',
     source: '《中国高血压防治指南（2024 年修订版）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
     body: [
       '高血压是指在未使用降压药的情况下，诊室血压多次测量收缩压 ≥ 140 mmHg 和（或）舒张压 ≥ 90 mmHg。一次测量偏高不能直接下诊断，需要多次、规范测量后由医生判断。',
       '大多数高血压没有明显症状，很多人是体检时才发现的。正因为平时没感觉，它才容易被忽视，也常被称为“无声的”健康问题。',
@@ -19,6 +22,9 @@ export const ARTICLES = [
     category: '基础',
     title: '高血脂是什么？',
     source: '《中国血脂管理指南（2023 年）》',
+    sourceLinks: [
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
     body: [
       '高血脂是指血液中胆固醇、甘油三酯等脂质成分超出适宜范围。体检报告里最常看的四项是总胆固醇（TC）、低密度脂蛋白胆固醇（LDL-C，俗称“坏胆固醇”）、高密度脂蛋白胆固醇（HDL-C，俗称“好胆固醇”）和甘油三酯（TG）。',
       '其中 LDL-C 是目前防治动脉粥样硬化性心血管疾病最主要的管理指标：它越高，脂质在血管壁沉积、形成斑块的风险越高。',
@@ -31,6 +37,10 @@ export const ARTICLES = [
     category: '基础',
     title: '为什么高血压和高血脂要一起管？',
     source: '《中国高血压防治指南（2024 年修订版）》《中国血脂管理指南（2023 年）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
     body: [
       '高血压和高血脂经常同时出现，它们都会损伤血管内皮、加速动脉粥样硬化。两个危险因素叠加时，心脑血管事件的整体风险不是简单相加，而是明显放大。',
       '所以医生看的不只是单项数值，而是整体心血管风险：年龄、血压、血脂、血糖、吸烟、早发心血管病家族史、有没有心脑肾已经受损，都要一起评估，再决定干预的强度和目标。',
@@ -43,6 +53,9 @@ export const ARTICLES = [
     category: '用药',
     title: '四大类经典降压药怎么分？',
     source: '《中国高血压防治指南（2024 年修订版）》及相关药品说明书',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
     body: [
       '常用的降压药按作用机制主要分四类：利尿剂、钙通道阻滞剂（CCB，常说的“地平类”）、血管紧张素转换酶抑制剂（ACEI，常说的“普利类”）和血管紧张素受体拮抗剂（ARB，常说的“沙坦类”）。此外还有 β 受体阻滞剂等，医生会根据合并症选用。',
       '不同类别适合的人群不同：比如合并糖尿病、蛋白尿时常优先考虑 ACEI 或 ARB；老年单纯收缩期高血压、盐敏感人群常优先考虑 CCB 或利尿剂；合并冠心病、心率快时可能用到 β 受体阻滞剂。选哪类、何时联用，是医生结合病情定的。',
@@ -55,6 +68,9 @@ export const ARTICLES = [
     category: '用药',
     title: '降脂药有哪些分类？',
     source: '《中国血脂管理指南（2023 年）》及相关药品说明书',
+    sourceLinks: [
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
     body: [
       '降脂药主要包括：他汀类（最常用的一线基础药物）、胆固醇吸收抑制剂（如依折麦布）、PCSK9 单克隆抗体（如依洛尤单抗、阿利西尤单抗）、小干扰 RNA 药物（如英克司兰）、贝派地酸、二十碳五烯酸乙酯等。不同药物的作用环节不同，常联合使用。',
       '他汀通过抑制肝脏合成胆固醇起作用，需要每天服用；PCSK9 单抗是皮下注射，约两周或一个月一次；英克司兰是小干扰 RNA，注射后作用持续较久，维持期约半年注射一次。这些用法差异很大，取药和复诊的节奏也不同。',
@@ -67,6 +83,10 @@ export const ARTICLES = [
     category: '用药',
     title: '降压药、降脂药要吃一辈子吗？',
     source: '《中国高血压防治指南（2024 年修订版）》《中国血脂管理指南（2023 年）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
     body: [
       '高血压和高血脂多是慢性、需要长期管理的问题。血压、血脂降到目标，多数情况下是因为药物在起作用，而不是病“治好了”，自行停药后数值常常会反弹。',
       '少数情况下，经过生活方式改善、体重下降、风险因素消除，医生可能评估减药甚至停药的可能，但这需要复查数据支持，并且要定期随访观察。',
@@ -79,6 +99,10 @@ export const ARTICLES = [
     category: '生活方式',
     title: '盐与饮食：先从每天的盐开始',
     source: '《中国高血压防治指南（2024 年修订版）》《中国血脂管理指南（2023 年）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
     body: [
       '钠摄入过多是血压升高的明确危险因素。做饭时少放盐，也要留意酱油、味精、咸菜、加工肉、方便面调料包、酱料里的“隐形盐”。',
       '饮食上可以参考“多菜少肉、粗细搭配”的大原则：多吃蔬菜、水果、全谷物和豆类，适量吃鱼和禽肉，少吃肥肉、动物内脏、油炸食品和含糖饮料。烹调多用蒸、煮、炖，少用煎炸。',
@@ -91,6 +115,9 @@ export const ARTICLES = [
     category: '生活方式',
     title: '运动：不用拼强度，贵在规律',
     source: '《中国高血压防治指南（2024 年修订版）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
     body: [
       '规律的有氧运动有助于控制血压和血脂。常见的方式有快走、慢跑、骑车、游泳、太极等，选自己喜欢、能坚持的比选“最有效”的更重要。',
       '开始运动前要量力而行：平时不运动的人先从短时间、低强度开始，逐步增加；有胸闷、胸痛、明显气短、头晕等不适时应停下来休息，必要时就医。',
@@ -103,6 +130,9 @@ export const ARTICLES = [
     category: '误区',
     title: '常见误区：血压正常了就能停药吗？',
     source: '《中国高血压防治指南（2024 年修订版）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
     body: [
       '这是最常见的误区之一。血压正常往往是药物加上生活方式共同作用的结果，停药后血压多会回升，长期波动反而增加风险。',
       '类似的误区还有：“没有症状就不用治”“血压计测一次高就是高血压”“保健品能替代降压药”“吃降压药会伤肾所以不敢吃”。这些说法都没有指南依据，真正伤肾的是长期控制不好的血压本身。',
@@ -115,6 +145,9 @@ export const ARTICLES = [
     category: '误区',
     title: '血脂化验单怎么看？先看这几项',
     source: '《中国血脂管理指南（2023 年）》',
+    sourceLinks: [
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
     body: [
       '先看 LDL-C：它是核心指标，对照自己的风险分层目标来判断——低危目标 < 3.4 mmol/L，中高危 < 2.6 mmol/L，极高危 < 1.8 mmol/L 且降幅 > 50%，超高危 < 1.4 mmol/L 且降幅 > 50%。',
       '再看 TC、HDL-C、TG：总胆固醇反映整体水平；HDL-C 偏低常与代谢异常相关；甘油三酯明显升高时，饮食、饮酒、血糖的影响要一并考虑。',
@@ -127,6 +160,9 @@ export const ARTICLES = [
     category: '基础',
     title: '家庭血压和诊室血压为什么不一样？',
     source: '《中国高血压防治指南（2024 年修订版）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+    ],
     body: [
       '家庭血压和诊室血压测的是同一个指标，但场景不同：诊室环境、紧张情绪、测量时间都会影响读数。有些人在诊室偏高、在家正常，叫“白大衣性高血压”；反过来在家高、在诊室正常，叫“隐蔽性高血压”。两种情况都需要医生结合多次测量来判断。',
       '家庭血压的参考标准与诊室不同：家庭血压 ≥ 135/85 mmHg 就相当于诊室 ≥ 140/90 mmHg 的水平。所以拿家庭自测的数去对照 140/90 会低估问题，家庭血压应按 135/85 这条线判断。',
@@ -139,6 +175,10 @@ export const ARTICLES = [
     category: '生活方式',
     title: '体重、腰围和双高有什么关系？',
     source: '《中国高血压防治指南（2024 年修订版）》《中国血脂管理指南（2023 年）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
     body: [
       '超重和肥胖是高血压、高血脂共同的危险因素，体重下降通常伴随血压和血脂的改善。管理体重的意义不只是数字好看，而是直接降低整体心血管风险。',
       '除了体重，腰围也很重要：腹型肥胖与代谢异常关系更密切。记录体重时最好固定时间、固定条件（比如早上空腹、排便后），这样趋势才真实。',
@@ -151,6 +191,10 @@ export const ARTICLES = [
     category: '用药',
     title: '去复诊前要准备什么？',
     source: '《中国高血压防治指南（2024 年修订版）》《中国血脂管理指南（2023 年）》',
+    sourceLinks: [
+      { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
+      { label: '中国血脂管理指南（2023年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E8%A1%80%E8%84%82%E7%AE%A1%E7%90%86%E6%8C%87%E5%8D%97+2023' },
+    ],
     body: [
       '带三样东西：一是近期的血压记录（最好是 7 天表，含早晚平均），二是最近的血脂化验单和既往报告，三是正在吃的药盒或用药清单（含剂量和开始时间）。',
       '提前想好要问医生的三个问题，比如：我的血压血脂离目标还差多少？现在这套方案要不要调整？下次复查什么时候、查什么？写下来带去，避免到了诊室想不起来。',
@@ -163,6 +207,10 @@ export const ARTICLES = [
     category: '前沿解读',
     title: 'PCSK9 与 siRNA：从两周一针到半年一针',
     source: 'ORION-10 / ORION-11 试验（NEJM 2020）；FOURIER 试验（NEJM 2017）',
+    sourceLinks: [
+      { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
+      { label: 'FOURIER（NEJM 2017）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/28304224/' },
+    ],
     body: [
       'PCSK9 是一种会降解 LDL 受体的蛋白：它越多，肝细胞表面的 LDL 受体越少，血液里的 LDL-C 就越难被清除。抑制 PCSK9，就能让 LDL 受体留下来继续工作。',
       '第一代方案是单克隆抗体（依洛尤单抗、阿利西尤单抗），每两周或每月皮下注射一次，LDL-C 降幅约 50%–60%，FOURIER 与 ODYSSEY OUTCOMES 试验都证实了心血管事件风险下降（HR 均为 0.85）。',
@@ -175,6 +223,10 @@ export const ARTICLES = [
     category: '前沿解读',
     title: 'Lp(a)：为什么常规降脂药降不下来？',
     source: 'Lp(a)HORIZON 试验（NEJM 2026）；OCEAN(a)-DOSE 试验（NEJM 2023）',
+    sourceLinks: [
+      { label: 'Lp(a)HORIZON（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43001734/' },
+      { label: 'OCEAN(a)-DOSE · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=OCEAN%28a%29-DOSE+olpasiran' },
+    ],
     body: [
       'Lp(a) 是一种由遗传决定的脂蛋白，结构上像 LDL-C 颗粒上多挂了一个 apo(a) 蛋白。它的水平一生基本稳定，生活方式和他汀、依折麦布等常规降脂药对它几乎没有作用。',
       '针对 Lp(a) 的在研药物直接瞄准 apo(a) 的生成：反义寡核苷酸 pelacarsen 在 II期能把 Lp(a) 降低约 80%，siRNA 药物 olpasiran、lepodisiran 在 II期能降低 94% 以上。但 2026 年 11 月公布的 Lp(a)HORIZON III期试验中，pelacarsen 虽然把 Lp(a) 降低约 78%，主要心血管终点却未达到（HR 1.02），开发项目随之终止。',
@@ -187,6 +239,10 @@ export const ARTICLES = [
     category: '前沿解读',
     title: '醛固酮合成酶抑制剂：难治性高血压的新靶点',
     source: 'BaxHTN 试验（NEJM 2025）；BrigHTN 试验（NEJM 2023）',
+    sourceLinks: [
+      { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+      { label: 'BrigHTN（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36342143/' },
+    ],
     body: [
       '一部分难治性高血压的根源是醛固酮过多：醛固酮让肾脏留钠留水，血容量上去，血压就难降。传统做法是用醛固酮受体拮抗剂（如螺内酯）去挡它的作用，而新药直接从源头抑制醛固酮的合成酶 CYP11B2。',
       '代表药物 baxdrostat 在 III期 BaxHTN 试验中，2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg，安慰剂校正下降 9.8 mmHg；II期 BrigHTN 中安慰剂校正下降约 11 mmHg。2026 年 11 月，它获得了欧洲药品管理局人用药品委员会的积极意见。',
@@ -199,6 +255,10 @@ export const ARTICLES = [
     category: '前沿解读',
     title: '肾去神经术：器械降压走到哪一步了',
     source: 'SPYRAL HTN-ON MED、RADIANCE-HTN 试验；FDA 批准公告（2023-11）',
+    sourceLinks: [
+      { label: 'SPYRAL HTN-ON MED（Lancet 2022）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/35390320/' },
+      { label: 'RADIANCE-HTN SOLO（Lancet 2018）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/29803590/' },
+    ],
     body: [
       '肾去神经术不是药，而是一种器械治疗：经导管用射频或超声消融肾动脉周围的交感神经，降低交感神经活性与肾素释放，从而降压。',
       '多项随机对照试验显示，肾去神经术组诊室收缩压较对照组多降约 5–10 mmHg。2023 年 11 月，美国 FDA 批准了两款器械，正式把它纳入难治性高血压的可选方案。',
@@ -211,6 +271,9 @@ export const ARTICLES = [
     category: '前沿解读',
     title: '降压 siRNA 与高血压疫苗：一年打两针可能吗？',
     source: 'KARDIA-1 试验（JAMA 2024）；Alnylam / Roche 公告（2025-08）',
+    sourceLinks: [
+      { label: 'KARDIA-1（JAMA 2024）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/38363577/' },
+    ],
     body: [
       '降压 siRNA 的思路和英克司兰类似，只是靶点换成了血管紧张素原（AGT）——肾素-血管紧张素系统的源头底物。代表药物 zilebesiran 单次注射后，3 个月时 24 小时动态收缩压安慰剂校正下降 16.7 mmHg（300 mg 组），效果持续至 6 个月，血清血管紧张素原下降超过 90%。',
       '2025 年 8 月，zilebesiran 进入 III期心血管结局试验 ZENITH，计划入组约 11,000 人。硬终点证据出来之前，它仍然是在研药物，不能按已上市药物理解。',
