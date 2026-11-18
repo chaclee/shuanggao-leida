@@ -16,17 +16,17 @@ export default function ArticlesPage() {
 
   return (
     <div>
-      <Title level={3}>科普库</Title>
+      <Title level={3}>前沿解读</Title>
       <Alert
         type="info"
         showIcon
         style={{ marginBottom: 16 }}
-        message="本站仅提供科普与记录工具，不构成诊疗建议，用药请遵医嘱。"
-        description="每篇科普都写明了依据来源与版本；涉及具体数值的，只写指南目标值，不写没有来源的数字。"
+        message="本站仅提供公开情报与科普展示，不构成诊疗建议，用药请遵医嘱。"
+        description="每篇解读都写明了依据来源与版本；涉及具体数值的，只写已发表试验或指南披露的数字，不写没有来源的数字。"
       />
       <Row gutter={[12, 12]} style={{ marginBottom: 16 }}>
         <Col span={24}>
-          <Input.Search placeholder="搜科普，例如：降压药、盐、误区" allowClear value={q} onChange={(e) => setQ(e.target.value)} />
+          <Input.Search placeholder="搜解读，例如：Lp(a)、siRNA、醛固酮" allowClear value={q} onChange={(e) => setQ(e.target.value)} />
         </Col>
         <Col span={24}>
           {cats.map((c) => (
@@ -66,7 +66,7 @@ export default function ArticlesPage() {
           {!filtered.length && <Col span={24}><Paragraph type="secondary">没有找到相关科普，换个关键词试试。</Paragraph></Col>}
         </Row>
       )}
-      <Paragraph type="secondary" style={{ marginTop: 16 }}>共 {ARTICLES.length} 篇科普，覆盖基础、用药、生活方式、误区四类。</Paragraph>
+      <Paragraph type="secondary" style={{ marginTop: 16 }}>共 {ARTICLES.length} 篇解读，覆盖基础、用药、生活方式、误区、前沿解读五类。</Paragraph>
     </div>
   );
 }
