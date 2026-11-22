@@ -1,14 +1,15 @@
-// 双高雷达 · 前沿技术展示版 — 内容数据（截至 2026-11，人工整理）
+// 双高雷达 · 前沿技术展示版 — 内容数据（截至 2026-11-22，人工整理）
 // 准确性规则：
 // - 只写公开资料里能查到的事实；每条都写依据来源与版本。
 // - 试验结果数字必须标试验名和来源；不确定的写“在研中，尚未公布关键结果”，不编数字。
-// - 临床试验编号只写已核实的两个（BaxHTN NCT06034743、CLEAR Outcomes NCT02993406、
-//   Lp(a)HORIZON NCT04023552），其余只写试验名 + 公开来源，不写不确定的 NCT 号。
+// - 临床试验编号只写已核实的（BaxHTN NCT06034743、CLEAR Outcomes NCT02993406、
+//   Lp(a)HORIZON NCT04023552、CORALreef Lipids NCT05952856、CORALreef HeFH NCT05952869、
+//   CORALreef Outcomes NCT06008756），其余只写试验名 + 公开来源，不写不确定的 NCT 号。
 // - 本站不收录任何个人健康数据。
 
-export const DATA_AS_OF = '2026-11';
+export const DATA_AS_OF = '2026-11-22';
 export const DATA_CALIBER =
-  '本站收录为人工整理的公开情报（截至 2026-11），不是全球试验数据库的全量统计；' +
+  '本站收录为人工整理的公开情报（截至 2026-11-22），不是全球试验数据库的全量统计；' +
   '数字均为已发表试验或企业公告披露的结果，详见各条目来源。';
 
 export const SOURCES = [
@@ -109,6 +110,22 @@ export const DRUGS = [
     imageCredit: 'Wikimedia Commons',
     sourceLinks: [
       { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
+    ],
+  },
+  {
+    id: 'd27', name: 'Enlicitide', nameEn: 'Enlicitide（Lipfendra）', target: 'PCSK9',
+    tech: '口服小分子', stage: '已上市', category: '降脂',
+    mechanism: '新型大环肽，口服后结合 PCSK9，阻止其与 LDL 受体结合，增加肝细胞表面 LDL 受体数量，加速 LDL-C 清除；每日一次口服，空腹服用、服药后 30 分钟内禁食。',
+    indication: '成人高胆固醇血症（含杂合子家族性高胆固醇血症），作为饮食与运动的辅助治疗。',
+    endpoint: 'CORALreef Lipids III期：24 周 LDL-C 较基线下降 57.1%，安慰剂校正降幅 55.8 个百分点（约 56%）；CORALreef HeFH：安慰剂校正降幅约 59%；心血管结局试验 CORALreef Outcomes（14,500 余人）进行中，尚未公布关键结果。',
+    source: 'CORALreef Lipids 试验（NEJM 2026），ClinicalTrials.gov NCT05952856；FDA 批准公告（2026-07）',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Enlicitide_decanoate.svg',
+    imageCaption: '化学结构式（Enlicitide decanoate）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'FDA 批准公告（2026-07）', url: 'https://www.fda.gov/news-events/press-announcements/fda-approves-first-oral-pcsk9-inhibitor-lower-ldl-cholesterol-adults-high-cholesterol' },
+      { label: 'CORALreef Lipids（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/41879224/' },
+      { label: 'ClinicalTrials.gov NCT05952856', url: 'https://clinicaltrials.gov/study/NCT05952856' },
     ],
   },
   {
@@ -311,17 +328,19 @@ export const DRUGS = [
   },
   {
     id: 'd21', name: 'Baxdrostat', nameEn: 'Baxdrostat（Baxfendy）', target: '醛固酮合成酶 CYP11B2',
-    tech: '小分子', stage: 'III期完成', category: '难治性高血压',
+    tech: '小分子', stage: '已上市', category: '难治性高血压',
     mechanism: '高选择性醛固酮合成酶抑制剂，阻断 CYP11B2，减少醛固酮生成；治疗剂量下不抑制皮质醇合成。',
-    indication: '未控制或难治性高血压（在标准治疗基础上加用）。',
-    endpoint: 'BaxHTN III期：2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg，安慰剂校正下降 9.8 mmHg；1 mg 组安慰剂校正下降 8.7 mmHg。II期 BrigHTN：2 mg 组安慰剂校正下降约 11 mmHg。',
-    source: 'BaxHTN 试验（NEJM 2025），ClinicalTrials.gov NCT06034743；BrigHTN 试验（NEJM 2023）',
+    indication: '未控制或难治性高血压（在标准治疗基础上加用）；美国 FDA 于 2026 年 5 月 15 日批准（商品名 Baxfendy），推荐剂量 2 mg 每日一次。',
+    endpoint: 'BaxHTN III期：2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg，安慰剂校正下降 9.8 mmHg；1 mg 组安慰剂校正下降 8.7 mmHg。II期 BrigHTN：2 mg 组安慰剂校正下降约 11 mmHg。美国 FDA 2026 年 5 月 15 日批准用于联用治疗未控制高血压。',
+    source: 'BaxHTN 试验（NEJM 2025），ClinicalTrials.gov NCT06034743；BrigHTN 试验（NEJM 2023）；FDA 批准（2026-05-15）',
     image: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Baxdrostat.svg',
     imageCaption: '化学结构式',
     imageCredit: 'Wikimedia Commons',
     sourceLinks: [
       { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
       { label: 'ClinicalTrials.gov NCT06034743', url: 'https://clinicaltrials.gov/study/NCT06034743' },
+      { label: 'FDA 批准文件（NDA 219878）', url: 'https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219878Orig1s000Approv.pdf' },
+      { label: 'FDA 2026 年新药批准', url: 'https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026' },
     ],
   },
   {
@@ -400,9 +419,50 @@ export const DRUGS = [
   },
 ];
 
-// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11） ----------------
+// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-22） ----------------
 // type: 试验推进 | 结果公布 | 获批 | 失败/未达终点 | 指南更新
 export const RADAR_EVENTS = [
+  {
+    id: 'e18', date: '2026-11-18', type: '试验推进', level: '一般',
+    title: 'Scribe 在 AHA 2026 公布 STX-1150 / STX-1200 临床前数据：单次给药降脂效果持续两年',
+    summary: 'Scribe Therapeutics 在 AHA 2026 年会公布 STX-1150 与 STX-1200 的临床前数据：STX-1150（CRISPR 表观遗传沉默疗法，靶向 PCSK9）在非人灵长类动物中单次给药后 LDL-C 降幅最高达 68%，治疗相关剂量下降幅超过 50% 并持续至少两年，且不改变 DNA 序列；STX-1200（CRISPR-CasX 基因编辑疗法，靶向 LPA 基因）单次给药后肝脏 LPA 编辑率超过 80%，血浆 Apo(a) 下降超过 95%。STX-1150 已进入 I 期临床试验，首批临床数据预计 2027 年上半年公布。',
+    source: 'Scribe Therapeutics 公告（2026-11-18）；AHA 2026 年会',
+    sourceLinks: [
+      { label: 'Scribe 公告（2026-11-18）· GlobeNewswire', url: 'https://rss.globenewswire.com/news-release/2026/11/18/3405586/0/en/scribe-therapeutics-presents-new-data-advancing-the-potential-of-ultra-long-acting-genetic-medicines-for-cardiovascular-disease-at-aha-scientific-sessions-2026.html' },
+    ],
+    drug: 'STX-1150 / STX-1200', target: 'PCSK9 / LPA', tech: '基因编辑', stage: '早期在研',
+  },
+  {
+    id: 'e19', date: '2026-11-18', type: '结果公布', level: '一般',
+    title: 'Lp(a) 降低疗法网状 Meta 分析发表：siRNA 类药物降幅最大',
+    summary: '发表于《内分泌学前沿》（Frontiers in Endocrinology）的系统评价与网状 Meta 分析纳入 83 项随机对照试验、46,984 名受试者，比较各类 Lp(a) 降低疗法的生化降幅：olpasiran 平均降幅最大（-92.06 个百分点），其次为 muvalaplin（-61.49）与 pelacarsen（-54.15）。作者提醒，证据确定性多为低或极低，且该分析只比较生化指标降幅，不回答心血管事件获益。',
+    source: 'Zhao 等，Frontiers in Endocrinology（2026-11-18），DOI 10.3389/fendo.2026.1960814',
+    sourceLinks: [
+      { label: '网状 Meta 分析全文 · Frontiers', url: 'https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1960814/full' },
+    ],
+    drug: '—', target: 'Lp(a)', tech: '—', stage: '—',
+  },
+  {
+    id: 'e2', date: '2026-11-16', type: '获批', level: '重大',
+    title: 'Baxdrostat 获欧洲药品管理局人用药品委员会（CHMP）积极意见',
+    summary: '基于 BaxHTN 与 Bax24 两项 III期试验，CHMP 建议批准 baxdrostat（商品名 Baxfendy）用于成人高血压治疗。BaxHTN 中 2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg；Bax24 中 24 小时动态收缩压较基线下降 16.6 mmHg。',
+    source: '阿斯利康公告（2026-11-16）；BaxHTN 试验（NEJM 2025）',
+    sourceLinks: [
+      { label: 'EMA Baxfendy 药品页', url: 'https://www.ema.europa.eu/en/medicines/human/EPAR/baxfendy' },
+      { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+    ],
+    drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: '已上市',
+  },
+  {
+    id: 'e17', date: '2026-11-08', type: '结果公布', level: '重要',
+    title: '信达 Tafolecimab（SINTBILO）CREDIT-5 III期达主要终点：单药 12 周 LDL-C 降幅超 60%',
+    summary: '信达生物宣布，PCSK9 单抗 tafolecimab（商品名 SINTBILO）作为一线单药治疗的 III期 CREDIT-5 试验达到主要终点：198 名中国非家族性高胆固醇血症与混合型血脂异常患者中，12 周时 LDL-C 较基线下降 65.19%（150 mg 每两周）与 64.01%（450 mg 每四周），安慰剂组分别为 -6.61% 与 -4.31%；非 HDL-C、ApoB 与 Lp(a) 亦显著下降，Lp(a) 降幅近 50%。信达计划近期向 NMPA 提交新适应症申请。',
+    source: '信达生物公告（2026-11-08），PRNewswire',
+    sourceLinks: [
+      { label: '信达生物公告（2026-11-08）· PRNewswire', url: 'https://www.prnewswire.com/news-releases/innovent-announces-phase-3-credit-5-study-met-primary-endpoint-sintbilo-tafolecimab-injection-as-first-line-monotherapy-treatment-for-hyperlipidemia-demonstrated-potent-lipid-lowering-efficacy-302932681.html' },
+    ],
+    drug: 'Tafolecimab', target: 'PCSK9', tech: '单克隆抗体', stage: 'III期完成',
+  },
   {
     id: 'e1', date: '2026-11-07', type: '失败/未达终点', level: '重大',
     title: 'Pelacarsen 的 Lp(a)HORIZON III期试验未达到主要心血管终点',
@@ -415,15 +475,15 @@ export const RADAR_EVENTS = [
     drug: 'Pelacarsen', target: 'Lp(a)', tech: '反义寡核苷酸', stage: 'III期完成',
   },
   {
-    id: 'e2', date: '2026-11-16', type: '获批', level: '重大',
-    title: 'Baxdrostat 获欧洲药品管理局人用药品委员会（CHMP）积极意见',
-    summary: '基于 BaxHTN 与 Bax24 两项 III期试验，CHMP 建议批准 baxdrostat（商品名 Baxfendy）用于成人高血压治疗。BaxHTN 中 2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg；Bax24 中 24 小时动态收缩压较基线下降 16.6 mmHg。',
-    source: '阿斯利康公告（2026-11-16）；BaxHTN 试验（NEJM 2025）',
+    id: 'e16', date: '2026-11-03', type: '结果公布', level: '重要',
+    title: 'SPYRAL AFFIRM 真实世界研究 6 个月结果公布：肾去神经术诊室收缩压下降 18.2 mmHg',
+    summary: '美敦力在 TCT 2026 年会公布 SPYRAL AFFIRM 上市后研究 6 个月主要终点结果：美国主要终点队列 594 名未控制高血压患者接受 Symplicity Spyral 肾去神经术后，诊室收缩压较基线下降 18.2 mmHg，家庭血压下降 9.4 mmHg，24 小时动态血压下降 9.7 mmHg，降压药数量未增加；86.1% 的患者获得临床获益。同期 FDA 批准更新 Symplicity Spyral 标签，新增单纯收缩期高血压、3b 期以下慢性肾病与 2 型糖尿病患者的数据。',
+    source: '美敦力公告（2026-11-03）；TCT 2026 年会；同期发表于 Circulation: Cardiovascular Interventions',
     sourceLinks: [
-      { label: 'EMA Baxfendy 药品页', url: 'https://www.ema.europa.eu/en/medicines/human/EPAR/baxfendy' },
-      { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+      { label: '美敦力公告（2026-11-03）', url: 'https://news.medtronic.com/2026-11-03-TCT26-Medtronic-Symplicity-blood-pressure-procedure-shows-significant-blood-pressure-drops-in-SPYRAL-AFFIRM-real-world-study' },
+      { label: 'Healio 报道（2026-11-17）', url: 'https://www.healio.com/news/cardiology/20261117/radiofrequency-renal-denervation-safe-effective-in-largest-us-trial' },
     ],
-    drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: 'III期完成',
+    drug: '肾去神经术', target: '肾交感神经', tech: '器械', stage: '已上市',
   },
   {
     id: 'e3', date: '2026-09', type: '指南更新', level: '重要',
@@ -434,6 +494,29 @@ export const RADAR_EVENTS = [
       { label: '2026 ACC/AHA 血脂指南 · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=2026+ACC%2FAHA+cholesterol+guideline' },
     ],
     drug: '—', target: 'Lp(a)', tech: '—', stage: '—',
+  },
+  {
+    id: 'e14', date: '2026-07-16', type: '获批', level: '重大',
+    title: 'Enlicitide（Lipfendra）获美国 FDA 批准：首款口服 PCSK9 抑制剂',
+    summary: 'FDA 批准 Merck 的 enlicitide（商品名 Lipfendra）20 mg 每日一次口服，用于成人高胆固醇血症（含杂合子家族性高胆固醇血症），作为饮食与运动的辅助治疗。这是首款获批的口服 PCSK9 抑制剂。批准基于 CORALreef 项目两项 III期试验：CORALreef Lipids（2,909 人）24 周 LDL-C 较基线下降 57.1%，安慰剂校正降幅 55.8 个百分点；CORALreef HeFH 安慰剂校正降幅约 59%。心血管结局试验 CORALreef Outcomes（14,500 余人）正在进行中，尚未公布关键结果。',
+    source: 'FDA 批准公告（2026-07）；Merck 公告（2026-07-16）；CORALreef Lipids 试验（NEJM 2026）',
+    sourceLinks: [
+      { label: 'FDA 批准公告（2026-07）', url: 'https://www.fda.gov/news-events/press-announcements/fda-approves-first-oral-pcsk9-inhibitor-lower-ldl-cholesterol-adults-high-cholesterol' },
+      { label: 'CORALreef Lipids（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/41879224/' },
+      { label: 'ClinicalTrials.gov NCT05952856', url: 'https://clinicaltrials.gov/study/NCT05952856' },
+    ],
+    drug: 'Enlicitide', target: 'PCSK9', tech: '口服小分子', stage: '已上市',
+  },
+  {
+    id: 'e15', date: '2026-05-15', type: '获批', level: '重大',
+    title: 'Baxdrostat（Baxfendy）获美国 FDA 批准：首款醛固酮合成酶抑制剂',
+    summary: 'FDA 批准阿斯利康的 baxdrostat（商品名 Baxfendy）用于联用治疗未控制高血压：成人患者在其他降压药控制不佳时加用，推荐剂量 2 mg 每日一次。这是首款获批的醛固酮合成酶抑制剂。批准基于 III期 BaxHTN 试验：2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg，安慰剂校正下降 9.8 mmHg。',
+    source: 'FDA 批准文件（NDA 219878，2026-05-15）；阿斯利康公告（2026-05-18）',
+    sourceLinks: [
+      { label: 'FDA 批准文件（NDA 219878）', url: 'https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219878Orig1s000Approv.pdf' },
+      { label: 'FDA 2026 年新药批准', url: 'https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026' },
+    ],
+    drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: '已上市',
   },
   {
     id: 'e4', date: '2025-08-30', type: '结果公布', level: '重大',
@@ -538,14 +621,14 @@ export const RADAR_EVENTS = [
       { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
     ],
     drug: '英克司兰', target: 'PCSK9', tech: 'siRNA', stage: '已上市',
-  },
+  }
 ];
 
 // ---------------- 试验追踪（15 项） ----------------
 // status: 已完成（结果已公布） | 已完成（主要终点未达到） | 进行中 | 已完成
 // 只有三个试验写了已核实的 ClinicalTrials.gov 编号，其余只写试验名。
 export const TRIALS = [
-  { id: 't1', trial: 'BaxHTN', drug: 'Baxdrostat', phase: 'III期', indication: '未控制 / 难治性高血压', endpoint: '12 周诊室收缩压较基线变化', status: '已完成（结果已公布）', result: '2 mg 组较基线 -15.7 mmHg，安慰剂校正 -9.8 mmHg（NEJM 2025）', nct: 'NCT06034743', changeLog: '2023-02 II期 BrigHTN 发表 → 2025-08 III期结果公布（NEJM）→ 2026-11 获 EMA CHMP 积极意见。',
+  { id: 't1', trial: 'BaxHTN', drug: 'Baxdrostat', phase: 'III期', indication: '未控制 / 难治性高血压', endpoint: '12 周诊室收缩压较基线变化', status: '已完成（结果已公布）', result: '2 mg 组较基线 -15.7 mmHg，安慰剂校正 -9.8 mmHg（NEJM 2025）', nct: 'NCT06034743', changeLog: '2023-02 II期 BrigHTN 发表 → 2025-08 III期结果公布（NEJM）→ 2026-05 获美国 FDA 批准 → 2026-11 获 EMA CHMP 积极意见。',
      sourceLinks: [
       { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
       { label: 'ClinicalTrials.gov NCT06034743', url: 'https://clinicaltrials.gov/study/NCT06034743' },
