@@ -16,12 +16,17 @@ function DrugImage({ drug, height, failed, onFail, className }) {
     <div className={className || 'drug-thumb'} style={height ? { height } : undefined}>
       <img
         src={drug.image}
-        alt={`${drug.name}（${drug.nameEn}）`}
+        alt={displayName(drug)}
         loading="lazy"
         onError={() => onFail(drug.id)}
       />
     </div>
   );
+}
+
+function displayName(d) {
+  // 英文名药物 nameEn 已含 name（如 Enlicitide（Lipfendra）），只显示 nameEn，避免重复
+  return d.nameEn && d.nameEn.startsWith(d.name) ? d.nameEn : `${d.name} · ${d.nameEn}`;
 }
 
 export default function DrugLibrary({ onGo }) {
@@ -72,7 +77,7 @@ export default function DrugLibrary({ onGo }) {
       {open ? (
         <div>
           <a className="back-link" onClick={() => setOpenId(null)}>← 返回列表</a>
-          <h2 className="page-title" style={{ marginTop: 16 }}>{open.name} · {open.nameEn}</h2>
+          <h2 className="page-title" style={{ marginTop: 16 }}>{displayName(open)}</h2>
           <DrugImage drug={open} className="detail-img" failed={failed} onFail={markFailed} />
           <p className="img-caption">
             {open.imageCaption}
@@ -95,7 +100,7 @@ export default function DrugLibrary({ onGo }) {
             <li key={d.id} onClick={() => setOpenId(d.id)}>
               <DrugImage drug={d} failed={failed} onFail={markFailed} />
               <div style={{ minWidth: 0 }}>
-                <h3>{d.name} · {d.nameEn}</h3>
+                <h3>{displayName(d)}</h3>
                 <div className="drug-meta">
                   <span className="stage">{d.stage}</span> · 靶点：{d.target} · 技术：{d.tech} · {d.category}
                 </div>
@@ -106,7 +111,7 @@ export default function DrugLibrary({ onGo }) {
           {!filtered.length && <li style={{ cursor: 'default' }}><p>没有找到相关药物，换个关键词或筛选条件试试。</p></li>}
         </ul>
       )}
-      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {DRUGS.length} 个药物 / 技术条目，截至 2026-11。</p>
+      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {filtered.length} 个药物 / 技术条目{filtered.length !== DRUGS.length ? '（已筛选）' : ''}，截至 2026-11-22。</p>
     </div>
   );
 }

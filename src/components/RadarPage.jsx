@@ -52,7 +52,7 @@ export default function RadarPage() {
         ))}
       </ul>
       {!filtered.length && <p className="page-intro">没有找到相关事件，换个关键词或筛选条件试试。</p>}
-      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {RADAR_EVENTS.length} 条事件，截至 2026-11。</p>
+      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {filtered.length} 条事件{filtered.length !== RADAR_EVENTS.length ? '（已筛选）' : ''}，截至 2026-11-22。</p>
     </div>
   );
 }
