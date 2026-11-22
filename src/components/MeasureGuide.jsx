@@ -1,7 +1,3 @@
-import { Card, Col, Row, Steps, Typography } from 'antd';
-
-const { Title, Paragraph, Text } = Typography;
-
 const FAQS = [
   {
     q: '测前要准备什么？',
@@ -45,34 +41,37 @@ const FAQS = [
   },
 ];
 
+const STEPS = [
+  { title: '准备', desc: '测前 30 分钟不吸烟、不喝咖啡、不剧烈运动；排空膀胱；安静休息 5 分钟。' },
+  { title: '坐好', desc: '坐有靠背的椅子，双脚平放地面，不跷腿；手臂放桌上，袖带中心与心脏同高。' },
+  { title: '绑好袖带', desc: '袖带尺寸与上臂围匹配，下缘距肘窝约两指宽，松紧能伸进一根手指。' },
+  { title: '测两次、取平均', desc: '连续测两到三次，间隔约一分钟，取平均值；早晚各测一次，连续记 7 天。' },
+];
+
 export default function MeasureGuide() {
   return (
     <div>
-      <Title level={3}>正确测压指南</Title>
-      <Paragraph type="secondary">依据来源：《中国高血压防治指南（2024 年修订版）》家庭血压测量相关内容。本页只讲测法，不做诊断。</Paragraph>
-      <Card title="测压四步" style={{ marginBottom: 16 }}>
-        <Steps
-          direction="vertical"
-          items={[
-            { title: '准备', description: '测前 30 分钟不吸烟、不喝咖啡、不剧烈运动；排空膀胱；安静休息 5 分钟。' },
-            { title: '坐好', description: '坐有靠背的椅子，双脚平放地面，不跷腿；手臂放桌上，袖带中心与心脏同高。' },
-            { title: '绑好袖带', description: '袖带尺寸与上臂围匹配，下缘距肘窝约两指宽，松紧能伸进一根手指。' },
-            { title: '测两次、取平均', description: '连续测两到三次，间隔约一分钟，取平均值；早晚各测一次，连续记 7 天。' },
-          ]}
-        />
-      </Card>
-      <Row gutter={[16, 16]}>
+      <h2 className="page-title">正确测压指南</h2>
+      <p className="page-intro">依据来源：《中国高血压防治指南（2024 年修订版）》家庭血压测量相关内容。本页只讲测法，不做诊断。</p>
+      <div className="section" style={{ marginTop: 0 }}>
+        <h3>测压四步</h3>
+        <ol className="steps-list">
+          {STEPS.map((s) => (
+            <li key={s.title}><strong>{s.title}</strong> · {s.desc}</li>
+          ))}
+        </ol>
+      </div>
+      <ul className="faq-list">
         {FAQS.map((f) => (
-          <Col xs={24} md={12} key={f.q}>
-            <Card title={f.q} size="small">
-              <Paragraph>{f.a}</Paragraph>
-            </Card>
-          </Col>
+          <li key={f.q}>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </li>
         ))}
-      </Row>
-      <Paragraph style={{ marginTop: 16 }}>
-        <Text type="secondary">提醒：家庭血压目标线是 135/85 mmHg，相当于诊室 140/90 mmHg。连续多天早上平均超过目标线，请带着 7 天表去复诊。</Text>
-      </Paragraph>
+      </ul>
+      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280', lineHeight: 1.8 }}>
+        提醒：家庭血压目标线是 135/85 mmHg，相当于诊室 140/90 mmHg。连续多天早上平均超过目标线，请带着 7 天表去复诊。
+      </p>
     </div>
   );
 }

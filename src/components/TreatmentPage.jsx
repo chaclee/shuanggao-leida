@@ -1,7 +1,5 @@
-import { Card, Col, Row, Table, Typography } from 'antd';
+import { Table } from 'antd';
 import SourceLinks from './SourceLinks';
-
-const { Title, Paragraph, Text } = Typography;
 
 const GUIDELINE_LINKS = [
   { label: '中国高血压防治指南（2024年）· PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%E4%B8%AD%E5%9B%BD%E9%AB%98%E8%A1%80%E5%8E%8B%E9%98%B2%E6%B2%BB%E6%8C%87%E5%8D%97+2024' },
@@ -40,18 +38,18 @@ const LIPID_CLASSES = [
 export default function TreatmentPage() {
   return (
     <div>
-      <Title level={3}>目前的治疗方案</Title>
-      <Paragraph type="secondary">
+      <h2 className="page-title">目前的治疗方案</h2>
+      <p className="page-intro">
         按指南分层的治疗方案总览：先讲现在临床上在用的方案，再讲前沿技术处在哪个位置。
         依据来源：《中国高血压防治指南（2024 年修订版）》《中国血脂管理指南（2023 年）》及相关药品说明书。
         本页只做方案展示，不做个人用药建议，选药与调整请遵医嘱。
-      </Paragraph>
-      <Paragraph style={{ fontSize: 12 }}>
+      </p>
+      <p style={{ fontSize: 12, marginBottom: 24 }}>
         <SourceLinks links={GUIDELINE_LINKS} />
-      </Paragraph>
+      </p>
 
-      <Title level={4}>一、降压：五类经典药物与联合治疗</Title>
-      <Card style={{ marginBottom: 16 }}>
+      <div className="section" style={{ marginTop: 0 }}>
+        <h3>一、降压：五类经典药物与联合治疗</h3>
         <Table
           rowKey="key" dataSource={HTN_CLASSES} pagination={false} scroll={{ x: 640 }}
           columns={[
@@ -61,18 +59,18 @@ export default function TreatmentPage() {
             { title: '注意事项', dataIndex: 'note', key: 'note' },
           ]}
         />
-        <Paragraph style={{ marginTop: 12 }}>
-          <Text strong>阶梯治疗与联合治疗：</Text>
+        <p style={{ marginTop: 16, fontSize: 15, lineHeight: 1.8 }}>
+          <strong>阶梯治疗与联合治疗：</strong>
           多数患者单药控制不达标时，指南推荐尽早联合治疗，常用组合为 ARB/ACEI + CCB、ARB/ACEI + 利尿剂、
           CCB + 利尿剂；三药联合仍不达标且排除继发因素后，考虑难治性高血压路径——加用醛固酮受体拮抗剂、
           评估醛固酮合成酶抑制剂等新机制药物，或评估肾去神经术等器械治疗，具体由医生结合病情决定。
-        </Paragraph>
-        <Paragraph type="secondary">新机制位置：醛固酮合成酶抑制剂（baxdrostat、lorundrostat）、降压 siRNA（zilebesiran）、
-        双重内皮素受体拮抗剂（aprocitentan）与肾去神经术，详见“药物资料库”与“前沿技术雷达”。</Paragraph>
-      </Card>
+        </p>
+        <p style={{ fontSize: 12, color: '#6b7280', lineHeight: 1.8 }}>新机制位置：醛固酮合成酶抑制剂（baxdrostat、lorundrostat）、降压 siRNA（zilebesiran）、
+        双重内皮素受体拮抗剂（aprocitentan）与肾去神经术，详见“药物资料库”与“前沿技术雷达”。</p>
+      </div>
 
-      <Title level={4}>二、降脂：分层达标，联合降 LDL-C</Title>
-      <Card style={{ marginBottom: 16 }}>
+      <div className="section">
+        <h3>二、降脂：分层达标，联合降 LDL-C</h3>
         <Table
           rowKey="key" dataSource={LIPID_CLASSES} pagination={false} scroll={{ x: 640 }}
           columns={[
@@ -82,48 +80,46 @@ export default function TreatmentPage() {
             { title: '备注', dataIndex: 'note', key: 'note' },
           ]}
         />
-        <Paragraph style={{ marginTop: 12 }}>
-          <Text strong>分层思路：</Text>
+        <p style={{ marginTop: 16, fontSize: 15, lineHeight: 1.8 }}>
+          <strong>分层思路：</strong>
           先按整体心血管风险分层定 LDL-C 目标，再选强度：低危以生活方式干预为主，必要时加药；
           中高危以上以他汀为基础，LDL-C 不达标时加用依折麦布、PCSK9 单抗或英克司兰等；
           他汀不耐受者可考虑贝派地酸。Lp(a) 升高目前尚无获批的针对性降低药物，在研药物详见“药物资料库”。
-        </Paragraph>
-      </Card>
+        </p>
+      </div>
 
-      <Row gutter={[16, 16]}>
-        <Col xs={24} md={12}>
-          <Card title="血压目标">
-            <Table
-              rowKey="key" dataSource={BP_ROWS} pagination={false}
-              columns={[
-                { title: '场景', dataIndex: 'item', key: 'item' },
-                { title: '目标', dataIndex: 'target', key: 'target', render: (v) => <Text strong>{v}</Text> },
-                { title: '说明', dataIndex: 'note', key: 'note' },
-              ]}
-            />
-            <Paragraph type="secondary" style={{ marginTop: 12 }}>
-              依据来源：《中国高血压防治指南（2024 年修订版）》。
-              <SourceLinks links={[GUIDELINE_LINKS[0]]} prefix="链接" style={{ fontSize: 12 }} />
-            </Paragraph>
-          </Card>
-        </Col>
-        <Col xs={24} md={12}>
-          <Card title="血脂目标（按风险分层）">
-            <Table
-              rowKey="key" dataSource={LIPID_ROWS} pagination={false}
-              columns={[
-                { title: '风险分层', dataIndex: 'level', key: 'level' },
-                { title: 'LDL-C 目标', dataIndex: 'target', key: 'target', render: (v) => <Text strong>{v}</Text> },
-                { title: '降幅要求', dataIndex: 'reduction', key: 'reduction' },
-              ]}
-            />
-            <Paragraph type="secondary" style={{ marginTop: 12 }}>
-              依据来源：《中国血脂管理指南（2023 年）》。风险分层请以医生评估为准，本页只做对照展示。
-              <SourceLinks links={[GUIDELINE_LINKS[1]]} prefix="链接" style={{ fontSize: 12 }} />
-            </Paragraph>
-          </Card>
-        </Col>
-      </Row>
+      <div className="two-col" style={{ marginTop: 32 }}>
+        <div>
+          <h3>血压目标</h3>
+          <Table
+            rowKey="key" dataSource={BP_ROWS} pagination={false}
+            columns={[
+              { title: '场景', dataIndex: 'item', key: 'item' },
+              { title: '目标', dataIndex: 'target', key: 'target', render: (v) => <strong>{v}</strong> },
+              { title: '说明', dataIndex: 'note', key: 'note' },
+            ]}
+          />
+          <p style={{ fontSize: 12, color: '#6b7280', lineHeight: 1.8, marginTop: 12 }}>
+            依据来源：《中国高血压防治指南（2024 年修订版）》。
+            <SourceLinks links={[GUIDELINE_LINKS[0]]} prefix="链接" style={{ fontSize: 12 }} />
+          </p>
+        </div>
+        <div>
+          <h3>血脂目标（按风险分层）</h3>
+          <Table
+            rowKey="key" dataSource={LIPID_ROWS} pagination={false}
+            columns={[
+              { title: '风险分层', dataIndex: 'level', key: 'level' },
+              { title: 'LDL-C 目标', dataIndex: 'target', key: 'target', render: (v) => <strong>{v}</strong> },
+              { title: '降幅要求', dataIndex: 'reduction', key: 'reduction' },
+            ]}
+          />
+          <p style={{ fontSize: 12, color: '#6b7280', lineHeight: 1.8, marginTop: 12 }}>
+            依据来源：《中国血脂管理指南（2023 年）》。风险分层请以医生评估为准，本页只做对照展示。
+            <SourceLinks links={[GUIDELINE_LINKS[1]]} prefix="链接" style={{ fontSize: 12 }} />
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

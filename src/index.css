@@ -1,67 +1,215 @@
+/* 双高雷达 v3 风格（用户选定：头条 + 栏目流）
+   白底黑字 · 一个品牌色 #0f766e（红色只用于失败信号）· 系统黑体
+   字号 H1 32 / H2 22 / H3 18 / 正文 15 / 元信息 12 · 间距 8 的倍数
+   无阴影、无圆角卡片、无渐变、无 pastel 标签 */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  background: #f2f7f5; /* 亮色、日光风格：浅青灰底，白卡片 */
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #ffffff;
+  color: #111827;
+  font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
 }
 #root { min-height: 100vh; }
+a { color: #0f766e; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-.site-layout { background: #f2f7f5; min-height: 100vh; }
-
-.site-header {
-  background: #ffffff;
-  border-bottom: 1px solid rgba(15, 118, 110, 0.12);
-  padding: 0;
-  height: auto;
-  line-height: normal;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 12px rgba(15, 60, 50, 0.06);
-}
+/* ---------- 整体布局 ---------- */
+.site-layout { background: #ffffff; min-height: 100vh; }
+.site-header { background: #ffffff; border-bottom: 1px solid #111827; position: sticky; top: 0; z-index: 100; }
 .header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 12px 24px 0;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
+  max-width: 1120px; margin: 0 auto; padding: 24px 24px 16px;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
-.brand {
-  font-size: 22px;
-  font-weight: 700;
-  color: #0f766e;
-  text-decoration: none;
-  cursor: pointer;
+.brand { display: block; font-size: 28px; font-weight: 800; letter-spacing: 1px; color: #111827; cursor: pointer; }
+.brand b { color: #0f766e; font-weight: 800; }
+.brand-sub { font-size: 13px; color: #6b7280; margin-top: 2px; }
+.dateline { font-size: 12px; color: #6b7280; white-space: nowrap; }
+.site-nav {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
-.brand-sub { color: #5b6b66; font-size: 13px; }
-.site-menu {
-  max-width: 1100px;
-  margin: 0 auto;
-  border-bottom: none;
-  background: transparent;
+.site-nav::-webkit-scrollbar { display: none; }
+.site-nav a {
+  display: inline-block; font-size: 15px; font-weight: 600;
+  padding: 12px 20px 12px 0; margin-right: 8px; color: #111827; cursor: pointer;
 }
-.site-menu .ant-menu-item { font-size: 15px; }
+.site-nav a:last-child { margin-right: 0; }
+.site-nav a.on { color: #0f766e; }
+.site-nav a:hover { text-decoration: none; color: #0f766e; }
+.site-content { max-width: 1120px; margin: 0 auto; padding: 32px 24px 48px; width: 100%; }
+.site-footer { border-top: 1px solid #e5e7eb; padding: 24px; font-size: 12px; line-height: 1.8; color: #6b7280; background: #ffffff; }
+.site-footer .wrap { max-width: 1120px; margin: 0 auto; }
+.site-footer p { margin: 0 0 8px; }
+.site-footer .stats { color: #374151; }
+.site-footer .stats b { color: #111827; }
+.site-footer a { color: #0f766e; cursor: pointer; }
 
-.site-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px;
-  width: 100%;
+/* ---------- 通用版式 ---------- */
+.page-title { font-size: 22px; font-weight: 800; line-height: 1.5; margin: 0 0 8px; color: #111827; }
+.page-intro { font-size: 15px; line-height: 1.8; color: #4b5563; margin: 0 0 24px; }
+.section { margin-top: 32px; }
+.section > h2 { font-size: 22px; font-weight: 800; line-height: 1.5; margin: 0 0 8px; color: #111827; }
+.section > h3 { font-size: 18px; font-weight: 800; line-height: 1.5; margin: 24px 0 8px; color: #111827; }
+.kicker { font-size: 12px; color: #6b7280; letter-spacing: 2px; margin-bottom: 8px; }
+.dot { display: inline-block; width: 6px; height: 6px; background: #0f766e; margin-right: 6px; vertical-align: 2px; }
+.dot.red { background: #dc2626; }
+.flat-note {
+  border: 1px solid #e5e7eb; border-left: 2px solid #0f766e;
+  padding: 16px; margin: 0 0 24px; font-size: 14px; line-height: 1.8; color: #374151;
 }
-.site-content .ant-card { border-radius: 12px; }
+.flat-note strong { color: #111827; }
 
-.site-footer {
-  text-align: center;
-  background: #ffffff;
-  border-top: 1px solid rgba(15, 118, 110, 0.12);
-  padding: 20px 24px;
+/* 新闻列表：日期 12px 灰 + 标题 17px 粗 + 一行摘要 14px 行高 1.8，1px 分隔线 */
+.news-list { list-style: none; margin: 0; padding: 0; }
+.news-list > li { padding: 16px 0; border-bottom: 1px solid #e5e7eb; }
+.news-list > li:first-child { border-top: 1px solid #e5e7eb; }
+.news-meta { font-size: 12px; color: #6b7280; margin-bottom: 4px; }
+.news-meta .tag { color: #0f766e; font-weight: 600; margin-left: 8px; }
+.news-meta .tag.fail { color: #dc2626; }
+.news-meta .tag.major { color: #dc2626; }
+.news-list h3 { font-size: 17px; line-height: 1.5; font-weight: 800; margin: 0; color: #111827; }
+.news-list p { font-size: 14px; line-height: 1.8; color: #4b5563; margin: 4px 0 0; }
+.news-list .src { font-size: 12px; color: #6b7280; margin-top: 8px; }
+
+/* 子页入口：小字链接行 */
+.entries { border-top: 1px solid #111827; margin-top: 48px; }
+.entries a {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  padding: 16px 0; border-bottom: 1px solid #e5e7eb; font-size: 15px; font-weight: 600; color: #111827; cursor: pointer;
 }
+.entries a:hover { text-decoration: none; }
+.entries a span { font-size: 12px; color: #6b7280; font-weight: 400; white-space: nowrap; }
+.entries a i { font-style: normal; color: #0f766e; }
 
+/* 筛选行 */
+.filters { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
+.filters .grow { flex: 1 1 280px; min-width: 0; }
+.filters .sel { flex: 1 1 140px; min-width: 0; }
+
+/* ---------- 首页（v2：头条 + 栏目流） ---------- */
+.headline { padding-bottom: 32px; border-bottom: 1px solid #111827; }
+.headline h1 { font-size: 32px; line-height: 1.4; font-weight: 800; margin: 0; color: #111827; }
+.headline .lede { font-size: 15px; line-height: 1.8; color: #374151; margin-top: 16px; }
+.headline .src { font-size: 12px; color: #6b7280; margin-top: 16px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin-top: 32px; }
+.col h2 { font-size: 18px; padding-bottom: 8px; border-bottom: 2px solid #111827; margin: 0 0 8px; color: #111827; }
+.col h2 .fail { color: #dc2626; }
+.col .news-list li { padding: 12px 0; }
+.col .news-list h3 { font-size: 15px; }
+.col .news-list p { font-size: 13px; }
+.col .note { font-size: 12px; color: #6b7280; line-height: 1.8; padding: 12px 0; border-top: 1px solid #e5e7eb; }
+.stagebar { margin-top: 48px; }
+.stagebar h2 { font-size: 22px; font-weight: 800; line-height: 1.5; margin: 0 0 16px; color: #111827; }
+.bar { display: flex; width: 100%; height: 12px; }
+.bar div { height: 12px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; }
+.legend div { font-size: 13px; color: #374151; }
+.legend b { font-size: 15px; color: #111827; }
+.legend .sw { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: -1px; }
+
+/* ---------- 药物库 ---------- */
+.drug-list { list-style: none; margin: 0; padding: 0; }
+.drug-list > li {
+  padding: 16px 0; border-bottom: 1px solid #e5e7eb; cursor: pointer;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.drug-list > li:first-child { border-top: 1px solid #e5e7eb; }
+.drug-thumb {
+  width: 120px; height: 90px; flex: 0 0 120px; background: #ffffff;
+  border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.drug-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.drug-thumb .noimg { font-size: 12px; color: #6b7280; text-align: center; padding: 8px; line-height: 1.6; }
+.drug-list h3 { font-size: 17px; line-height: 1.5; font-weight: 800; margin: 0; color: #111827; }
+.drug-list .drug-meta { font-size: 12px; color: #6b7280; margin: 4px 0; }
+.drug-list .drug-meta .stage { color: #0f766e; font-weight: 600; }
+.drug-list p { font-size: 14px; line-height: 1.8; color: #4b5563; margin: 0; }
+.clamp2 {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.detail-img {
+  width: 100%; max-width: 560px; height: 260px; background: #ffffff; border: 1px solid #e5e7eb;
+  display: flex; align-items: center; justify-content: center; overflow: hidden; margin: 16px 0 8px;
+}
+.detail-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.detail-img .noimg { font-size: 12px; color: #6b7280; }
+.img-caption { font-size: 12px; color: #6b7280; text-align: center; margin: 0 0 16px; }
+.field { font-size: 15px; line-height: 1.8; margin: 0 0 8px; }
+.field strong { color: #111827; }
+.back-link { font-size: 14px; cursor: pointer; }
+
+/* ---------- 测压指南 ---------- */
+.steps-list { list-style: none; counter-reset: step; margin: 0 0 24px; padding: 0; }
+.steps-list li {
+  counter-increment: step; padding: 12px 0 12px 40px; position: relative;
+  border-bottom: 1px solid #e5e7eb; font-size: 15px; line-height: 1.8;
+}
+.steps-list li:first-child { border-top: 1px solid #e5e7eb; }
+.steps-list li::before {
+  content: counter(step); position: absolute; left: 0; top: 14px;
+  width: 24px; height: 24px; background: #0f766e; color: #ffffff;
+  font-size: 13px; font-weight: 700; text-align: center; line-height: 24px;
+}
+.steps-list strong { color: #111827; }
+.faq-list { list-style: none; margin: 0; padding: 0; }
+.faq-list li { padding: 16px 0; border-bottom: 1px solid #e5e7eb; }
+.faq-list li:first-child { border-top: 1px solid #e5e7eb; }
+.faq-list h3 { font-size: 17px; font-weight: 800; margin: 0 0 4px; color: #111827; }
+.faq-list p { font-size: 14px; line-height: 1.8; color: #4b5563; margin: 0; }
+
+/* ---------- 分类按钮（解读页） ---------- */
+.cat-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.cat-btn {
+  font-family: inherit; font-size: 14px; padding: 6px 12px; cursor: pointer;
+  background: #ffffff; border: 1px solid #e5e7eb; color: #374151;
+}
+.cat-btn.on { border-color: #0f766e; color: #0f766e; font-weight: 600; }
+
+/* ---------- 两栏 ---------- */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.two-col h3 { font-size: 18px; font-weight: 800; margin: 0 0 8px; color: #111827; }
+
+/* ---------- Ant Design 扁平化覆盖 ---------- */
+.site-content .ant-card { border: 1px solid #e5e7eb; border-radius: 0; box-shadow: none; }
+.site-content .ant-card-head { border-bottom: 1px solid #e5e7eb; min-height: 0; padding: 12px 16px; }
+.site-content .ant-card-head-title { font-size: 17px; font-weight: 800; padding: 0; }
+.site-content .ant-card-body { padding: 16px; }
+.site-content .ant-typography { color: #111827; }
+.site-content .ant-typography-secondary { color: #6b7280; }
+.site-content h3.ant-typography { font-size: 22px; font-weight: 800; line-height: 1.5; margin: 0 0 8px; }
+.site-content h4.ant-typography { font-size: 18px; font-weight: 800; line-height: 1.5; margin: 24px 0 8px; }
+.site-content h5.ant-typography { font-size: 15px; font-weight: 800; margin: 16px 0 8px; }
+.site-content .ant-input, .site-content .ant-select-selector, .site-content .ant-btn { border-radius: 0 !important; }
+.site-content .ant-input { font-family: inherit; }
+.site-content .ant-table { background: #ffffff; }
+.site-content .ant-table-thead > tr > th {
+  background: #ffffff; border-bottom: 2px solid #111827; font-weight: 800; color: #111827;
+}
+.site-content .ant-table-tbody > tr > td { border-bottom: 1px solid #e5e7eb; }
+.site-content .ant-table-tbody > tr:hover > td { background: #f9fafb; }
+.site-content .ant-tabs-ink-bar { background: #0f766e; }
+.site-content .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn { color: #0f766e; }
+.site-content .ant-tabs-tab:hover { color: #0f766e; }
+.site-content .ant-alert { background: #ffffff; border: 1px solid #e5e7eb; border-left: 2px solid #0f766e; border-radius: 0; }
+.site-content .ant-tag { background: #ffffff; border: 1px solid #e5e7eb; color: #374151; border-radius: 0; margin-right: 8px; }
+.site-content .ant-tag-red { color: #dc2626; border-color: #fca5a5; }
+.site-content .ant-empty-image { display: none; }
+
+/* ---------- 移动端 ---------- */
 @media (max-width: 640px) {
-  .site-content { padding: 16px 12px; }
-  .brand { font-size: 19px; }
-  .brand-sub { display: none; }
+  .site-content { padding: 24px 16px 32px; }
+  .header-inner { padding: 16px 16px 8px; }
+  .brand { font-size: 24px; }
+  .dateline { display: none; }
+  .site-nav { padding: 0 16px; }
+  .headline { padding-bottom: 24px; }
+  .headline h1 { font-size: 28px; }
+  .cols { grid-template-columns: 1fr; gap: 24px; }
+  .two-col { grid-template-columns: 1fr; gap: 24px; }
+  .drug-thumb { width: 96px; height: 72px; flex-basis: 96px; }
+  .site-footer { padding: 24px 16px; }
 }

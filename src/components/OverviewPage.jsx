@@ -1,127 +1,140 @@
-import { Card, Col, List, Row, Statistic, Tag, Typography } from 'antd';
-import { Bar, BarChart, CartesianGrid, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { DATA_AS_OF, DATA_CALIBER, DRUGS, RADAR_EVENTS, SOURCES, TRIALS } from '../data/frontier';
+import { ARTICLES } from '../data/articles';
+import { DATA_AS_OF, DRUGS, RADAR_EVENTS, SOURCES, TRIALS } from '../data/frontier';
+import { SourceText } from './SourceLinks';
 
-const { Title, Paragraph, Text } = Typography;
-const STAGE_COLORS = { '已上市': '#0f766e', 'III期完成': '#2f6fb2', 'III期进行中': '#d97706', 'II期': '#7c5cd6', 'II期完成': '#7c5cd6', '早期在研': '#94a3b8' };
-const CAT_COLORS = { '降压': '#0f766e', '降脂': '#2f6fb2', 'Lp(a)': '#d97706', '难治性高血压': '#b45309' };
+const byDateDesc = (a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0);
+const short = (s, n = 70) => (s && s.length > n ? `${s.slice(0, n)}…` : s || '');
 
-function countBy(list, key) {
-  const map = {};
-  list.forEach((r) => { const k = r[key] || '未注明'; map[k] = (map[k] || 0) + 1; });
-  return Object.entries(map).map(([name, value]) => ({ name, value }));
-}
+// 阶段分布条：设计稿口径（已上市 / III期 / II期 / 早期在研），由 DRUGS 的 stage 字段分组推导。
+const STAGE_GROUPS = [
+  { label: '已上市', match: (s) => s === '已上市', color: '#0f766e' },
+  { label: 'III期', match: (s) => s.startsWith('III期'), color: 'rgba(15,118,110,.55)' },
+  { label: 'II期', match: (s) => s.startsWith('II期'), color: 'rgba(15,118,110,.32)' },
+  { label: '早期在研', match: (s) => s === '早期在研', color: 'rgba(15,118,110,.18)' },
+];
 
 export default function OverviewPage({ onGo }) {
-  const stageData = countBy(DRUGS, 'stage');
-  const techData = countBy(DRUGS, 'tech');
-  const catData = countBy(DRUGS, 'category');
-  const majorEvents = RADAR_EVENTS.filter((e) => e.level === '重大');
+  const headline = RADAR_EVENTS.find((e) => e.type === '获批' && e.title.includes('Enlicitide'));
+  const approvals = RADAR_EVENTS.filter((e) => e.type === '获批').sort(byDateDesc).slice(0, 4);
+  const results = RADAR_EVENTS.filter((e) => e.type === '结果公布' || e.type === '试验推进')
+    .sort(byDateDesc).slice(0, 4);
+  const failures = RADAR_EVENTS.filter((e) => e.type === '失败/未达终点').sort(byDateDesc);
+  const stageCounts = STAGE_GROUPS.map((g) => ({ ...g, count: DRUGS.filter((d) => g.match(d.stage)).length }));
 
   return (
     <div>
-      <Title level={3}>双高领域全局概览</Title>
-      <Paragraph type="secondary">
-        高血压 + 高血脂的前沿技术与治疗方案情报站。本站仅提供公开情报与科普展示，不构成诊疗建议，用药请遵医嘱。
-      </Paragraph>
-      <Paragraph type="secondary" style={{ fontSize: 13 }}>
-        数据口径：{DATA_CALIBER} 更新时间：截至 {DATA_AS_OF}。
-      </Paragraph>
+      {/* 头条：数据中最新的重大获批事件（Enlicitide，FDA 2026-07-16） */}
+      <div className="headline">
+        <div className="kicker"><span className="dot" />本周头条 · 获批</div>
+        <h1>{headline.title}</h1>
+        <p className="lede">{headline.summary}</p>
+        <p className="src">
+          {headline.date} · 来源：<SourceText text={headline.source} links={headline.sourceLinks} />
+        </p>
+      </div>
 
-      <Row gutter={[16, 16]} style={{ marginBottom: 16 }}>
-        <Col xs={12} sm={6}><Card><Statistic title="收录药物 / 技术" value={DRUGS.length} suffix="个" /></Card></Col>
-        <Col xs={12} sm={6}><Card><Statistic title="收录临床试验" value={TRIALS.length} suffix="项" /></Card></Col>
-        <Col xs={12} sm={6}><Card><Statistic title="收录研发事件" value={RADAR_EVENTS.length} suffix="条" /></Card></Col>
-        <Col xs={12} sm={6}><Card><Statistic title="重大事件" value={majorEvents.length} suffix="条" /></Card></Col>
-      </Row>
+      {/* 三栏栏目流 */}
+      <div className="cols">
+        <div className="col">
+          <h2>获批</h2>
+          <ul className="news-list">
+            {approvals.map((e) => (
+              <li key={e.id}>
+                <div className="news-meta">{e.date}</div>
+                <h3>{e.title}</h3>
+                <p>{short(e.summary, 60)}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <Row gutter={[16, 16]} style={{ marginBottom: 16 }}>
-        <Col xs={24} md={12}>
-          <Card title="药物 / 技术：按研发阶段分布">
-            <ResponsiveContainer width="100%" height={240}>
-              <PieChart>
-                <Pie data={stageData} dataKey="value" nameKey="name" outerRadius={88} label={({ name, value }) => `${name} ${value}`}>
-                  {stageData.map((d) => <Cell key={d.name} fill={STAGE_COLORS[d.name] || '#94a3b8'} />)}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-            <Text type="secondary" style={{ fontSize: 12 }}>已上市为经典治疗方案；在研部分集中在 siRNA、Lp(a) 与醛固酮合成酶抑制剂。</Text>
-          </Card>
-        </Col>
-        <Col xs={24} md={12}>
-          <Card title="药物 / 技术：按技术路线分布">
-            <ResponsiveContainer width="100%" height={240}>
-              <BarChart data={techData} layout="vertical" margin={{ left: 8, right: 16 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" allowDecimals={false} />
-                <YAxis type="category" dataKey="name" width={110} />
-                <Tooltip />
-                <Bar dataKey="value" fill="#0f766e" />
-              </BarChart>
-            </ResponsiveContainer>
-            <Text type="secondary" style={{ fontSize: 12 }}>小分子仍是主力；siRNA 是近五年最活跃的新技术路线。</Text>
-          </Card>
-        </Col>
-      </Row>
+        <div className="col">
+          <h2>试验结果</h2>
+          <ul className="news-list">
+            {results.map((e) => (
+              <li key={e.id}>
+                <div className="news-meta">{e.date}</div>
+                <h3>{e.title}</h3>
+                <p>{short(e.summary, 60)}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <Row gutter={[16, 16]}>
-        <Col xs={24} md={12}>
-          <Card title="按适应症分布">
-            <ResponsiveContainer width="100%" height={220}>
-              <BarChart data={catData} margin={{ left: 0, right: 16 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis allowDecimals={false} />
-                <Tooltip />
-                <Bar dataKey="value" fill="#2f6fb2">
-                  {catData.map((d) => <Cell key={d.name} fill={CAT_COLORS[d.name] || '#2f6fb2'} />)}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </Card>
-        </Col>
-        <Col xs={24} md={12}>
-          <Card title="近期重大事件" extra={<a onClick={() => onGo('radar')}>去看雷达</a>}>
-            <List
-              size="small"
-              dataSource={majorEvents}
-              renderItem={(e) => (
-                <List.Item>
-                  <div>
-                    <div><Tag color="red">{e.type}</Tag> {e.title}</div>
-                    <Text type="secondary" style={{ fontSize: 12 }}>{e.date} · {e.drug}</Text>
-                  </div>
-                </List.Item>
+        <div className="col">
+          <h2><span className="fail">失败</span></h2>
+          <ul className="news-list">
+            {failures.map((e) => (
+              <li key={e.id}>
+                <div className="news-meta">{e.date}<span className="tag fail">● 未达终点</span></div>
+                <h3>{e.title}</h3>
+                <p>{short(e.summary, 60)}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="note">
+            2026 年至今收录失败 / 未达终点事件 {failures.length} 条。这一结果并未否定 Lp(a) 本身的致病作用，后续 siRNA 药物的结局试验仍在进行中。
+          </p>
+        </div>
+      </div>
+
+      {/* 阶段分布条 */}
+      <div className="stagebar">
+        <h2>{DRUGS.length} 个药物，按研发阶段分布</h2>
+        <div className="bar">
+          {stageCounts.map((g) => (
+            <div key={g.label} style={{ flex: g.count, background: g.color }} />
+          ))}
+        </div>
+        <div className="legend">
+          {stageCounts.map((g) => (
+            <div key={g.label}>
+              <span className="sw" style={{ background: g.color }} />
+              {g.label} <b>{g.count}</b> · {Math.round((g.count / DRUGS.length) * 100)}%
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 子页入口 */}
+      <div className="entries">
+        <a onClick={() => onGo('drugs')}>药物资料库 <span>{DRUGS.length} 个药物与技术</span> <i>→</i></a>
+        <a onClick={() => onGo('trials')}>试验追踪 <span>{TRIALS.length} 项临床试验</span> <i>→</i></a>
+        <a onClick={() => onGo('evidence')}>医学证据分析 <span>收缩压 · LDL-C · 心血管事件</span> <i>→</i></a>
+        <a onClick={() => onGo('articles')}>前沿解读 <span>{ARTICLES.length} 篇</span> <i>→</i></a>
+        <a onClick={() => onGo('treatment')}>治疗方案 <span>指南分层总览</span> <i>→</i></a>
+        <a onClick={() => onGo('guide')}>正确测压 <span>附录</span> <i>→</i></a>
+      </div>
+
+      {/* 数据来源 */}
+      <div className="section">
+        <h2>数据来源</h2>
+        <ul className="news-list">
+          {SOURCES.map((s) => (
+            <li key={s.name}>
+              <h3 style={{ fontSize: 15 }}>
+                {s.url ? (
+                  <a href={s.url} target="_blank" rel="noopener noreferrer">{s.name}</a>
+                ) : s.name}
+              </h3>
+              <p>{s.note}</p>
+              {s.extraUrls && (
+                <p className="src">
+                  {s.extraUrls.map((x) => (
+                    <span key={x.url} style={{ marginRight: 12 }}>
+                      <a href={x.url} target="_blank" rel="noopener noreferrer">{x.label}</a>
+                    </span>
+                  ))}
+                </p>
               )}
-            />
-          </Card>
-        </Col>
-      </Row>
-
-      <Card title="数据来源" style={{ marginTop: 16 }}>
-        <List
-          size="small"
-          dataSource={SOURCES}
-          renderItem={(s) => (
-            <List.Item>
-              {s.url ? (
-                <a href={s.url} target="_blank" rel="noopener noreferrer"><Text strong>{s.name}</Text></a>
-              ) : (
-                <Text strong>{s.name}</Text>
-              )}
-              <Text type="secondary" style={{ marginLeft: 8 }}>{s.note}</Text>
-              {s.extraUrls && s.extraUrls.map((x) => (
-                <a key={x.url} href={x.url} target="_blank" rel="noopener noreferrer" style={{ marginLeft: 8 }}>{x.label}</a>
-              ))}
-            </List.Item>
-          )}
-        />
-        <Paragraph type="secondary" style={{ marginTop: 12, fontSize: 12 }}>
+            </li>
+          ))}
+        </ul>
+        <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280', lineHeight: 1.8 }}>
           特别说明：本站未接入中国 CDE 试验登记数据（反自动化限制），中国在研管线以 NMPA 与企业公告为准；
-          历史数据尚未全量回填，当前以近几年关键试验与事件为主。
-        </Paragraph>
-      </Card>
+          历史数据尚未全量回填，当前以近几年关键试验与事件为主。数据口径截至 {DATA_AS_OF}。
+        </p>
+      </div>
     </div>
   );
 }
