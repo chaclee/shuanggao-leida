@@ -7,7 +7,7 @@
 //   CORALreef Outcomes NCT06008756），其余只写试验名 + 公开来源，不写不确定的 NCT 号。
 // - 本站不收录任何个人健康数据。
 
-export const DATA_AS_OF = '2026-11-22';
+export const DATA_AS_OF = '2026-11-24';
 export const DATA_CALIBER =
   '本站收录为人工整理的公开情报（截至 2026-11-22），不是全球试验数据库的全量统计；' +
   '数字均为已发表试验或企业公告披露的结果，详见各条目来源。';
@@ -103,13 +103,15 @@ export const DRUGS = [
     tech: 'siRNA', stage: '已上市', category: '降脂',
     mechanism: '小干扰 RNA，沉默肝脏 PCSK9 的 mRNA，减少 PCSK9 合成；维持期约半年注射一次。',
     indication: '原发性高胆固醇血症、混合型血脂异常、家族性高胆固醇血症。',
-    endpoint: 'ORION-10/11 试验：LDL-C 降幅约 50%；心血管结局试验 ORION-4 进行中，尚未公布关键结果。',
-    source: 'ORION-10/11 试验（NEJM 2020）；药品说明书',
+    endpoint: 'ORION-10/11 试验：LDL-C 降幅约 50%；心血管结局试验 ORION-4（16,000 余人）2026-11-23 公布 topline 结果：达到主要终点，MACE 风险统计学显著且有临床意义地降低（具体数值未披露），完整数据计划 2027 年上半年发表。',
+    source: 'ORION-10/11 试验（NEJM 2020）；ORION-4 topline 结果（诺华公告 2026-11-23）；药品说明书',
     image: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Leqvio.jpg',
     imageCaption: 'Leqvio（英克司兰）产品包装实物图',
     imageCredit: 'Wikimedia Commons',
     sourceLinks: [
       { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
+      { label: 'ORION-4 topline 结果 · 诺华公告（2026-11-23）', url: 'https://www.globenewswire.com/news-release/2026/11/23/3408011/0/en/twice-yearly-leqvio-inclisiran-reduced-cardiovascular-event-risk-in-first-outcomes-study-of-an-sirna-therapy-in-ascvd.html' },
+      { label: 'ClinicalTrials.gov NCT03705234', url: 'https://clinicaltrials.gov/study/NCT03705234' },
     ],
   },
   {
@@ -423,6 +425,17 @@ export const DRUGS = [
 // type: 试验推进 | 结果公布 | 获批 | 失败/未达终点 | 指南更新
 export const RADAR_EVENTS = [
   {
+    id: 'e20', date: '2026-11-23', type: '结果公布', level: '重大',
+    title: '英克司兰 ORION-4 III期试验达到主要终点：首个 siRNA 疗法的心血管结局证据',
+    summary: '诺华宣布，英克司兰（Leqvio）心血管结局试验 ORION-4 达到主要终点：在标准降脂治疗基础上加用英克司兰，主要心血管事件（MACE，包括冠心病死亡、心梗、致死或非致死缺血性卒中、紧急冠脉血运重建）风险较安慰剂组出现统计学显著且有临床意义的降低，入组 16,000 余名已确诊动脉粥样硬化性心血管疾病患者。这是首个 siRNA 疗法的心血管结局证据。本次仅公布 topline 结果，未披露具体风险比等数值，完整数据计划 2027 年上半年发表；另一项结局试验 VICTORION-2 PREVENT 也预计 2027 年出结果。',
+    source: '诺华公告（2026-11-23）；ClinicalTrials.gov NCT03705234',
+    sourceLinks: [
+      { label: '诺华公告（2026-11-23）· GlobeNewswire', url: 'https://www.globenewswire.com/news-release/2026/11/23/3408011/0/en/twice-yearly-leqvio-inclisiran-reduced-cardiovascular-event-risk-in-first-outcomes-study-of-an-sirna-therapy-in-ascvd.html' },
+      { label: 'ClinicalTrials.gov NCT03705234', url: 'https://clinicaltrials.gov/study/NCT03705234' },
+    ],
+    drug: '英克司兰', target: 'PCSK9', tech: 'siRNA', stage: '已上市',
+  },
+  {
     id: 'e18', date: '2026-11-18', type: '试验推进', level: '一般',
     title: 'Scribe 在 AHA 2026 公布 STX-1150 / STX-1200 临床前数据：单次给药降脂效果持续两年',
     summary: 'Scribe Therapeutics 在 AHA 2026 年会公布 STX-1150 与 STX-1200 的临床前数据：STX-1150（CRISPR 表观遗传沉默疗法，靶向 PCSK9）在非人灵长类动物中单次给药后 LDL-C 降幅最高达 68%，治疗相关剂量下降幅超过 50% 并持续至少两年，且不改变 DNA 序列；STX-1200（CRISPR-CasX 基因编辑疗法，靶向 LPA 基因）单次给药后肝脏 LPA 编辑率超过 80%，血浆 Apo(a) 下降超过 95%。STX-1150 已进入 I 期临床试验，首批临床数据预计 2027 年上半年公布。',
@@ -615,7 +628,7 @@ export const RADAR_EVENTS = [
   {
     id: 'e13', date: '2020-03', type: '结果公布', level: '一般',
     title: 'ORION-10 / ORION-11 试验结果发表：英克司兰 LDL-C 降幅约 50%',
-    summary: '两项 III期试验中，英克司兰维持期每半年皮下注射一次，LDL-C 降幅约 50%，耐受性总体良好。心血管结局试验 ORION-4 正在进行中，尚未公布关键结果。',
+    summary: '两项 III期试验中，英克司兰维持期每半年皮下注射一次，LDL-C 降幅约 50%，耐受性总体良好。心血管结局试验 ORION-4 已于 2026-11-23 公布 topline 结果：达到主要终点，MACE 风险显著降低（具体数值未披露），完整数据计划 2027 年上半年发表。',
     source: 'ORION-10 / ORION-11 试验（NEJM 2020）',
     sourceLinks: [
       { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
@@ -624,7 +637,7 @@ export const RADAR_EVENTS = [
   }
 ];
 
-// ---------------- 试验追踪（15 项） ----------------
+// ---------------- 试验追踪（16 项） ----------------
 // status: 已完成（结果已公布） | 已完成（主要终点未达到） | 进行中 | 已完成
 // 只有三个试验写了已核实的 ClinicalTrials.gov 编号，其余只写试验名。
 export const TRIALS = [
@@ -653,9 +666,14 @@ export const TRIALS = [
      sourceLinks: [
       { label: 'Roche / Alnylam 公告（2025-08-30）', url: 'https://www.roche.com/media/releases/med-cor-2025-08-30' },
     ], },
-  { id: 't7', trial: 'ORION-10 / ORION-11', drug: '英克司兰', phase: 'III期', indication: '动脉粥样硬化性心血管疾病 / 高危', endpoint: 'LDL-C 降幅', status: '已完成（结果已公布）', result: 'LDL-C 降幅约 50%（NEJM 2020）', nct: '', changeLog: '2020-03 结果发表；结局试验 ORION-4 进行中，尚未公布关键结果。',
+  { id: 't7', trial: 'ORION-10 / ORION-11', drug: '英克司兰', phase: 'III期', indication: '动脉粥样硬化性心血管疾病 / 高危', endpoint: 'LDL-C 降幅', status: '已完成（结果已公布）', result: 'LDL-C 降幅约 50%（NEJM 2020）', nct: '', changeLog: '2020-03 结果发表；2026-11-23 结局试验 ORION-4 公布 topline 结果：达到主要终点，MACE 风险显著降低（具体数值未披露），完整数据计划 2027 年上半年发表。',
      sourceLinks: [
       { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
+    ], },
+  { id: 't16', trial: 'ORION-4', drug: '英克司兰', phase: 'III期', indication: '已确诊动脉粥样硬化性心血管疾病', endpoint: '主要心血管事件（MACE）', status: '已完成（结果已公布）', result: '达到主要终点：MACE 风险统计学显著且有临床意义地降低（topline 结果，具体数值未披露）；完整数据计划 2027 年上半年发表', nct: 'NCT03705234', changeLog: '2026-11-23 诺华公布 topline 结果，达到主要终点；完整数据计划 2027 年上半年发表。',
+     sourceLinks: [
+      { label: 'ORION-4 topline 结果 · 诺华公告（2026-11-23）', url: 'https://www.globenewswire.com/news-release/2026/11/23/3408011/0/en/twice-yearly-leqvio-inclisiran-reduced-cardiovascular-event-risk-in-first-outcomes-study-of-an-sirna-therapy-in-ascvd.html' },
+      { label: 'ClinicalTrials.gov NCT03705234', url: 'https://clinicaltrials.gov/study/NCT03705234' },
     ], },
   { id: 't8', trial: 'FOURIER', drug: '依洛尤单抗', phase: 'III期', indication: '已确诊动脉粥样硬化性心血管疾病', endpoint: '主要心血管事件（MACE）', status: '已完成（结果已公布）', result: 'LDL-C 降幅约 59%，MACE HR 0.85（NEJM 2017）', nct: '', changeLog: '2017 年结果发表；长期随访持续进行中。',
      sourceLinks: [
@@ -767,6 +785,11 @@ export const EVIDENCE_MACE = [
   { drug: '依折麦布 + 他汀（IMPROVE-IT）', result: 'HR 0.936', note: '急性冠脉综合征后', source: 'NEJM 2015',
     sourceLinks: [
       { label: 'IMPROVE-IT（NEJM 2015）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/26039521/' },
+    ], },
+  { drug: '英克司兰（ORION-4）', result: '达到主要终点（topline，未披露具体数值）', note: '首个 siRNA 疗法的心血管结局证据；完整数据待 2027 年上半年发表', source: '诺华公告 2026-11-23',
+    sourceLinks: [
+      { label: 'ORION-4 topline 结果 · 诺华公告（2026-11-23）', url: 'https://www.globenewswire.com/news-release/2026/11/23/3408011/0/en/twice-yearly-leqvio-inclisiran-reduced-cardiovascular-event-risk-in-first-outcomes-study-of-an-sirna-therapy-in-ascvd.html' },
+      { label: 'ClinicalTrials.gov NCT03705234', url: 'https://clinicaltrials.gov/study/NCT03705234' },
     ], },
   { drug: 'Pelacarsen（Lp(a)HORIZON）', result: 'HR 1.02（未达终点）', note: 'Lp(a) 下降约 78% 但事件未减少', source: 'NEJM 2026-11-07',
     sourceLinks: [
