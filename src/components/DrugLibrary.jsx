@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Input, Select } from 'antd';
-import { DRUGS } from '../data/frontier';
+import { DRUGS, DATA_AS_OF } from '../data/frontier';
 import { SourceText } from './SourceLinks';
 
 // 药品图片：结构图用 contain 展示（避免裁剪化学结构），实拍/示意图同样处理。
@@ -111,7 +111,7 @@ export default function DrugLibrary({ onGo }) {
           {!filtered.length && <li style={{ cursor: 'default' }}><p>没有找到相关药物，换个关键词或筛选条件试试。</p></li>}
         </ul>
       )}
-      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {filtered.length} 个药物 / 技术条目{filtered.length !== DRUGS.length ? '（已筛选）' : ''}，截至 2026-11-22。</p>
+      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {filtered.length} 个药物 / 技术条目{filtered.length !== DRUGS.length ? '（已筛选）' : ''}，截至 {DATA_AS_OF}。</p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Input, Select, Table } from 'antd';
-import { TRIALS } from '../data/frontier';
+import { TRIALS, DATA_AS_OF } from '../data/frontier';
 import SourceLinks from './SourceLinks';
 
 export default function TrialsPage() {
@@ -71,7 +71,7 @@ export default function TrialsPage() {
           },
         ]}
       />
-      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {TRIALS.length} 项关键试验，截至 2026-11。点开每行可看结果登记与变更记录。</p>
+      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {TRIALS.length} 项关键试验，截至 {DATA_AS_OF}。点开每行可看结果登记与变更记录。</p>
     </div>
   );
 }

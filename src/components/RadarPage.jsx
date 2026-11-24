@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Input, Select } from 'antd';
-import { RADAR_EVENTS } from '../data/frontier';
+import { RADAR_EVENTS, DATA_AS_OF } from '../data/frontier';
 import { SourceText } from './SourceLinks';
 
 export default function RadarPage() {
@@ -52,7 +52,7 @@ export default function RadarPage() {
         ))}
       </ul>
       {!filtered.length && <p className="page-intro">没有找到相关事件，换个关键词或筛选条件试试。</p>}
-      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {filtered.length} 条事件{filtered.length !== RADAR_EVENTS.length ? '（已筛选）' : ''}，截至 2026-11-22。</p>
+      <p style={{ marginTop: 16, fontSize: 12, color: '#6b7280' }}>共 {filtered.length} 条事件{filtered.length !== RADAR_EVENTS.length ? '（已筛选）' : ''}，截至 {DATA_AS_OF}。</p>
     </div>
   );
 }
