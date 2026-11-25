@@ -206,17 +206,18 @@ export const ARTICLES = [
     id: 'a14',
     category: '前沿解读',
     title: 'PCSK9 与 siRNA：从两周一针到半年一针',
-    source: 'ORION-10 / ORION-11 试验（NEJM 2020）；FOURIER 试验（NEJM 2017）',
+    source: 'ORION-10 / ORION-11 试验（NEJM 2020）；FOURIER 试验（NEJM 2017）；ORION-4 topline 结果（诺华公告 2026-11-23）',
     sourceLinks: [
       { label: 'ORION-10/11（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32187462/' },
       { label: 'FOURIER（NEJM 2017）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/28304224/' },
+      { label: 'ORION-4 topline 结果 · 诺华公告（2026-11-23）', url: 'https://www.globenewswire.com/news-release/2026/11/23/3408011/0/en/twice-yearly-leqvio-inclisiran-reduced-cardiovascular-event-risk-in-first-outcomes-study-of-an-sirna-therapy-in-ascvd.html' },
     ],
     body: [
       'PCSK9 是一种会降解 LDL 受体的蛋白：它越多，肝细胞表面的 LDL 受体越少，血液里的 LDL-C 就越难被清除。抑制 PCSK9，就能让 LDL 受体留下来继续工作。',
       '第一代方案是单克隆抗体（依洛尤单抗、阿利西尤单抗），每两周或每月皮下注射一次，LDL-C 降幅约 50%–60%，FOURIER 与 ODYSSEY OUTCOMES 试验都证实了心血管事件风险下降（HR 均为 0.85）。',
-      '第二代方案是小干扰 RNA（英克司兰），直接沉默肝脏 PCSK9 的 mRNA，维持期约半年注射一次，LDL-C 降幅约 50%。它的心血管结局试验 ORION-4 正在进行中，硬终点证据尚未公布——降幅好不等于结局已证实，这是看这类药时要分清的一点。',
+      '第二代方案是小干扰 RNA（英克司兰），直接沉默肝脏 PCSK9 的 mRNA，维持期约半年注射一次，LDL-C 降幅约 50%。它的心血管结局试验 ORION-4 已于 2026 年 11 月 23 日公布 topline 结果：达到主要终点，MACE 风险统计学显著且有临床意义地降低——这是首个 siRNA 疗法的心血管结局证据。不过目前只公布了定性结论，未披露风险比等具体数值，完整数据计划 2027 年上半年发表，降幅到底有多大还要等全文。',
     ],
-    points: ['PCSK9 越多，LDL 受体越少', '单抗两周或一月一针，siRNA 半年一针', '英克司兰的硬终点证据还在等 ORION-4'],
+    points: ['PCSK9 越多，LDL 受体越少', '单抗两周或一月一针，siRNA 半年一针', '英克司兰已有首个硬终点证据（ORION-4，2026-11-23 topline），具体降幅待全文'],
   },
   {
     id: 'a15',
