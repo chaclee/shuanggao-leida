@@ -1,15 +1,15 @@
-// 双高雷达 · 前沿技术展示版 — 内容数据（截至 2026-11-24，人工整理）
+// 双高雷达 · 前沿技术展示版 — 内容数据（截至 2026-11-25，人工整理）
 // 准确性规则：
 // - 只写公开资料里能查到的事实；每条都写依据来源与版本。
 // - 试验结果数字必须标试验名和来源；不确定的写“在研中，尚未公布关键结果”，不编数字。
 // - 临床试验编号只写已核实的（BaxHTN NCT06034743、CLEAR Outcomes NCT02993406、
 //   Lp(a)HORIZON NCT04023552、CORALreef Lipids NCT05952856、CORALreef HeFH NCT05952869、
-//   CORALreef Outcomes NCT06008756、ORION-4 NCT03705234），其余只写试验名 + 公开来源，不写不确定的 NCT 号。
+//   CORALreef Outcomes NCT06008756、ORION-4 NCT03705234、TYDAL-TIMI 78 NCT07028749），其余只写试验名 + 公开来源，不写不确定的 NCT 号。
 // - 本站不收录任何个人健康数据。
 
-export const DATA_AS_OF = '2026-11-24';
+export const DATA_AS_OF = '2026-11-25';
 export const DATA_CALIBER =
-  '本站收录为人工整理的公开情报（截至 2026-11-24），不是全球试验数据库的全量统计；' +
+  '本站收录为人工整理的公开情报（截至 2026-11-25），不是全球试验数据库的全量统计；' +
   '数字均为已发表试验或企业公告披露的结果，详见各条目来源。';
 
 export const SOURCES = [
@@ -128,6 +128,23 @@ export const DRUGS = [
       { label: 'FDA 批准公告（2026-07）', url: 'https://www.fda.gov/news-events/press-announcements/fda-approves-first-oral-pcsk9-inhibitor-lower-ldl-cholesterol-adults-high-cholesterol' },
       { label: 'CORALreef Lipids（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/41879224/' },
       { label: 'ClinicalTrials.gov NCT05952856', url: 'https://clinicaltrials.gov/study/NCT05952856' },
+    ],
+  },
+  {
+    id: 'd28', name: 'MAR001', nameEn: 'MAR001', target: 'ANGPTL4',
+    tech: '单克隆抗体', stage: 'II期', category: '降脂',
+    mechanism: '单克隆抗体抑制血管生成素样蛋白 4（ANGPTL4），解除其对脂蛋白脂肪酶的抑制，加速富含甘油三酯脂蛋白的清除。',
+    indication: '高甘油三酯血症（在研适应症）；重度高甘油三酯血症的 IIb 期 Part B 正在入组。',
+    endpoint: 'TYDAL-TIMI 78 Part A IIb 期（235 人）：12 周时空腹甘油三酯安慰剂校正降幅 -39.1 / -40.5 / -45.3 个百分点（300 / 450 / 900 mg，每 4 周皮下注射，P<0.001）；基线 ≥300 mg/dL 亚组降幅最高 57.2%，基线 ≥500 mg/dL 组较基线降幅最高 72.2%；未见 HbA1c 恶化、无胰腺炎病例；效果持续至 24 周。',
+    source: 'TYDAL-TIMI 78 Part A（NEJM 2026），ClinicalTrials.gov NCT07028749；AHA 2026 年会 late-breaker',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Antibody_IgG1_structure.png',
+    imageCaption: '单克隆抗体（IgG1）结构示意（非本产品实物）',
+    imageCredit: 'Wikimedia Commons',
+    sourceLinks: [
+      { label: 'TYDAL-TIMI 78（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43002172/' },
+      { label: 'TYDAL-TIMI 78（NEJM 2026）· NEJM', url: 'https://www.nejm.org/doi/abs/10.1056/NEJMoa2612463' },
+      { label: 'ClinicalTrials.gov NCT07028749', url: 'https://clinicaltrials.gov/study/NCT07028749' },
+      { label: 'ACC 会议报道（AHA 2026）', url: 'https://www.acc.org/latest-in-cardiology/articles/2026/11/06/14/37/mon-9am-tydal-timi-aha-2026' },
     ],
   },
   {
@@ -421,7 +438,7 @@ export const DRUGS = [
   },
 ];
 
-// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-24） ----------------
+// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-25） ----------------
 // type: 试验推进 | 结果公布 | 获批 | 失败/未达终点 | 指南更新
 export const RADAR_EVENTS = [
   {
@@ -467,6 +484,18 @@ export const RADAR_EVENTS = [
     drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: '已上市',
   },
   {
+    id: 'e22', date: '2026-11-09', type: '结果公布', level: '重要',
+    title: 'MAR001（ANGPTL4 抗体）TYDAL-TIMI 78 IIb 期结果发表于 NEJM：12 周甘油三酯安慰剂校正降幅 39.1%–45.3%',
+    summary: 'Marea Therapeutics 的首创 ANGPTL4 单抗 MAR001 在 IIb 期 TYDAL-TIMI 78 Part A 中达到主要终点：235 名高甘油三酯血症成人（中位基线甘油三酯 249.5 mg/dL）随机接受 MAR001 300、450 或 900 mg（每 4 周皮下注射）或安慰剂，12 周时空腹甘油三酯安慰剂校正降幅分别为 -39.1、-40.5、-45.3 个百分点（P<0.001）；基线 ≥300 mg/dL 亚组降幅最高 57.2%，基线 ≥500 mg/dL 组较基线降幅最高 72.2%，效果持续至 24 周。安全性总体良好：MAR001 组不良事件 69%，安慰剂组 78%，未见 HbA1c 恶化、无胰腺炎病例。结果在 AHA 2026 年会以 late-breaker 公布并同步发表于 NEJM。针对重度高甘油三酯血症的 Part B 已开始入组。',
+    source: 'O’Donoghue 等，NEJM 2026-11-09，DOI 10.1056/NEJMoa2612463；Marea Therapeutics 公告（2026-11-09）；ClinicalTrials.gov NCT07028749',
+    sourceLinks: [
+      { label: 'TYDAL-TIMI 78（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43002172/' },
+      { label: 'TYDAL-TIMI 78（NEJM 2026）· NEJM', url: 'https://www.nejm.org/doi/abs/10.1056/NEJMoa2612463' },
+      { label: 'ClinicalTrials.gov NCT07028749', url: 'https://clinicaltrials.gov/study/NCT07028749' },
+    ],
+    drug: 'MAR001', target: 'ANGPTL4', tech: '单克隆抗体', stage: 'II期',
+  },
+  {
     id: 'e17', date: '2026-11-08', type: '结果公布', level: '重要',
     title: '信达 Tafolecimab（SINTBILO）CREDIT-5 III期达主要终点：单药 12 周 LDL-C 降幅超 60%',
     summary: '信达生物宣布，PCSK9 单抗 tafolecimab（商品名 SINTBILO）作为一线单药治疗的 III期 CREDIT-5 试验达到主要终点：198 名中国非家族性高胆固醇血症与混合型血脂异常患者中，12 周时 LDL-C 较基线下降 65.19%（150 mg 每两周）与 64.01%（450 mg 每四周），安慰剂组分别为 -6.61% 与 -4.31%；非 HDL-C、ApoB 与 Lp(a) 亦显著下降，Lp(a) 降幅近 50%。信达计划近期向 NMPA 提交新适应症申请。',
@@ -497,6 +526,17 @@ export const RADAR_EVENTS = [
       { label: 'Healio 报道（2026-11-17）', url: 'https://www.healio.com/news/cardiology/20261117/radiofrequency-renal-denervation-safe-effective-in-largest-us-trial' },
     ],
     drug: '肾去神经术', target: '肾交感神经', tech: '器械', stage: '已上市',
+  },
+  {
+    id: 'e21', date: '2026-10-24', type: '指南更新', level: '重要',
+    title: '2026 年 ISH 全球高血压实践指南发布：标准化家庭血压监测成为诊断与管理的主要方法',
+    summary: '国际高血压学会（ISH）发布 2026 年全球高血压实践指南（上版为 2020 年），10 月 24 日在迪拜 ISH 年会上发布，刊于《Journal of Hypertension》。核心变化：①沿用“基本（Essential）/优化（Optimal）”两档 care：基本目标 <140/90 mmHg，优化目标 <130/80 mmHg，且优化目标适用人群扩大到更多老年人（按虚弱程度与耐受个体化）；②“高正常”改称“血压升高（Elevated BP）”，定义为诊室 130–139/80–89 mmHg，舒张压 80–84 也纳入；确诊的血压升高者优化档建议多数启动药物治疗（低危者先生活方式干预 3 个月，仍高则用药），诊断阈值仍为 140/90 mmHg；③标准化家庭血压监测（sHBPM）成为优化档诊断与管理的主要方法，3–7 天、早晚各测 2 次、至少 12 个读数、去掉第 1 天后取平均，家庭平均 ≥135/85 mmHg 即高血压，随意测量的诊室/家庭读数不应用于诊断，无袖带设备不推荐用于临床决策；④新增醛固酮合成酶抑制剂等新药类别推荐，特定患者可考虑肾去神经术；⑤抗高血压治疗不依从正式列为可改变的心血管危险因素；⑥配套发布 ISH OnTheGo AI 应用与 1 年全球推广计划。',
+    source: 'ISH 官网（2026 年指南发布）；《Journal of Hypertension》2026 年 ISH 全球高血压实践指南，DOI 10.1097/HJH.0000000000004451',
+    sourceLinks: [
+      { label: 'ISH 官网 · 2026 年指南发布', url: 'https://ish-world.com/latest-news-and-updates/ish-publishes-new-global-hypertension-practice-guidelines' },
+      { label: '2026 ISH 指南 · Journal of Hypertension', url: 'https://www.ovid.com/jnls/jhypertension/fulltext/10.1097/hjh.0000000000004451~2026-international-society-of-hypertension-global' },
+    ],
+    drug: '—', target: '高血压管理', tech: '—', stage: '—',
   },
   {
     id: 'e3', date: '2026-09', type: '指南更新', level: '重要',
@@ -674,6 +714,11 @@ export const TRIALS = [
      sourceLinks: [
       { label: 'ORION-4 topline 结果 · 诺华公告（2026-11-23）', url: 'https://www.globenewswire.com/news-release/2026/11/23/3408011/0/en/twice-yearly-leqvio-inclisiran-reduced-cardiovascular-event-risk-in-first-outcomes-study-of-an-sirna-therapy-in-ascvd.html' },
       { label: 'ClinicalTrials.gov NCT03705234', url: 'https://clinicaltrials.gov/study/NCT03705234' },
+    ], },
+  { id: 't17', trial: 'TYDAL-TIMI 78', drug: 'MAR001', phase: 'IIb 期', indication: '高甘油三酯血症', endpoint: '12 周空腹甘油三酯较基线变化', status: '进行中', result: 'Part A：12 周安慰剂校正降幅 -39.1 至 -45.3 个百分点（NEJM 2026）；Part B（重度高甘油三酯血症）正在入组', nct: 'NCT07028749', changeLog: '2026-11-09 AHA 2026 年会 late-breaker 公布并发表于 NEJM → Part B 开始入组重度高甘油三酯血症患者。',
+     sourceLinks: [
+      { label: 'TYDAL-TIMI 78（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43002172/' },
+      { label: 'ClinicalTrials.gov NCT07028749', url: 'https://clinicaltrials.gov/study/NCT07028749' },
     ], },
   { id: 't8', trial: 'FOURIER', drug: '依洛尤单抗', phase: 'III期', indication: '已确诊动脉粥样硬化性心血管疾病', endpoint: '主要心血管事件（MACE）', status: '已完成（结果已公布）', result: 'LDL-C 降幅约 59%，MACE HR 0.85（NEJM 2017）', nct: '', changeLog: '2017 年结果发表；长期随访持续进行中。',
      sourceLinks: [
