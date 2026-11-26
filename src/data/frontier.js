@@ -1,4 +1,4 @@
-// 双高雷达 · 前沿技术展示版 — 内容数据（截至 2026-11-25，人工整理）
+// 双高雷达 · 前沿技术展示版 — 内容数据（截至 2026-11-26，人工整理）
 // 准确性规则：
 // - 只写公开资料里能查到的事实；每条都写依据来源与版本。
 // - 试验结果数字必须标试验名和来源；不确定的写“在研中，尚未公布关键结果”，不编数字。
@@ -7,9 +7,9 @@
 //   CORALreef Outcomes NCT06008756、ORION-4 NCT03705234、TYDAL-TIMI 78 NCT07028749），其余只写试验名 + 公开来源，不写不确定的 NCT 号。
 // - 本站不收录任何个人健康数据。
 
-export const DATA_AS_OF = '2026-11-25';
+export const DATA_AS_OF = '2026-11-26';
 export const DATA_CALIBER =
-  '本站收录为人工整理的公开情报（截至 2026-11-25），不是全球试验数据库的全量统计；' +
+  '本站收录为人工整理的公开情报（截至 2026-11-26），不是全球试验数据库的全量统计；' +
   '数字均为已发表试验或企业公告披露的结果，详见各条目来源。';
 
 export const SOURCES = [
@@ -350,13 +350,14 @@ export const DRUGS = [
     tech: '小分子', stage: '已上市', category: '难治性高血压',
     mechanism: '高选择性醛固酮合成酶抑制剂，阻断 CYP11B2，减少醛固酮生成；治疗剂量下不抑制皮质醇合成。',
     indication: '未控制或难治性高血压（在标准治疗基础上加用）；美国 FDA 于 2026 年 5 月 15 日批准（商品名 Baxfendy），推荐剂量 2 mg 每日一次。',
-    endpoint: 'BaxHTN III期：2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg，安慰剂校正下降 9.8 mmHg；1 mg 组安慰剂校正下降 8.7 mmHg。II期 BrigHTN：2 mg 组安慰剂校正下降约 11 mmHg。美国 FDA 2026 年 5 月 15 日批准用于联用治疗未控制高血压。',
+    endpoint: 'BaxHTN III期：2 mg 组 12 周诊室收缩压较基线下降 15.7 mmHg，安慰剂校正下降 9.8 mmHg；1 mg 组安慰剂校正下降 8.7 mmHg。II期 BrigHTN：2 mg 组安慰剂校正下降约 11 mmHg。美国 FDA 2026 年 5 月 15 日批准用于联用治疗未控制高血压。2026-11-06 NEJM 通讯：14 例原发性醛固酮增多症患者服药 6–12 个月后停药，随访最长 2 年，醛固酮标志物仍比治疗前低 99%，收缩压平均低 25 mmHg，近四分之一停用全部降压药且血压正常；为小样本观察性随访，前瞻性 ELIXIR 试验正在验证。',
     source: 'BaxHTN 试验（NEJM 2025），ClinicalTrials.gov NCT06034743；BrigHTN 试验（NEJM 2023）；FDA 批准（2026-05-15）',
     image: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Baxdrostat.svg',
     imageCaption: '化学结构式',
     imageCredit: 'Wikimedia Commons',
     sourceLinks: [
       { label: 'BaxHTN（NEJM 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40888730/' },
+      { label: '停药后持续缓解（NEJM 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43001732/' },
       { label: 'ClinicalTrials.gov NCT06034743', url: 'https://clinicaltrials.gov/study/NCT06034743' },
       { label: 'FDA 批准文件（NDA 219878）', url: 'https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219878Orig1s000Approv.pdf' },
       { label: 'FDA 2026 年新药批准', url: 'https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026' },
@@ -438,7 +439,7 @@ export const DRUGS = [
   },
 ];
 
-// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-25） ----------------
+// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-26） ----------------
 // type: 试验推进 | 结果公布 | 获批 | 失败/未达终点 | 指南更新
 export const RADAR_EVENTS = [
   {
@@ -515,6 +516,17 @@ export const RADAR_EVENTS = [
       { label: 'ClinicalTrials.gov NCT04023552', url: 'https://clinicaltrials.gov/study/NCT04023552' },
     ],
     drug: 'Pelacarsen', target: 'Lp(a)', tech: '反义寡核苷酸', stage: 'III期完成',
+  },
+  {
+    id: 'e23', date: '2026-11-06', type: '结果公布', level: '重要',
+    title: 'Baxdrostat 延长治疗后停药仍持续缓解：14 例原发性醛固酮增多症患者随访两年血压仍低',
+    summary: '《新英格兰医学杂志》发表通讯：14 例原发性醛固酮增多症患者在美国 8 个中心接受醛固酮合成酶抑制剂 baxdrostat 延长治疗（6–12 个月）后停药，随访最长 2 年，醛固酮过量分泌的主要标志物仍比治疗前低 99%，收缩压平均低 25 mmHg，近四分之一的患者停用全部降压药且血压恢复正常。作者提示，延长抑制醛固酮合成可能通过清除过度分泌醛固酮的肾上腺细胞实现持续缓解，但这只是机制假说，尚未证实。本研究为小样本观察性随访，非随机对照试验，作者本人也强调结论需谨慎；更大规模的前瞻性 ELIXIR 试验正在开展，以验证有限疗程能否带来持久缓解。',
+    source: 'Brown 等，NEJM（2026-11-06 在线发表），PMID 43001732，DOI 10.1056/NEJMc2611265；伦敦玛丽女王大学新闻稿（2026-11-09）',
+    sourceLinks: [
+      { label: 'NEJM 通讯（2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/43001732/' },
+      { label: '伦敦玛丽女王大学新闻稿（2026-11-09）', url: 'https://www.qmul.ac.uk/whri/latest-news/2026/items/new-treatment-may-cure-common-hormonal-cause-of-high-blood-pressure.php' },
+    ],
+    drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: '已上市',
   },
   {
     id: 'e16', date: '2026-11-03', type: '结果公布', level: '重要',
