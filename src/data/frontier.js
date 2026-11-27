@@ -7,7 +7,7 @@
 //   CORALreef Outcomes NCT06008756、ORION-4 NCT03705234、TYDAL-TIMI 78 NCT07028749），其余只写试验名 + 公开来源，不写不确定的 NCT 号。
 // - 本站不收录任何个人健康数据。
 
-export const DATA_AS_OF = '2026-11-26';
+export const DATA_AS_OF = '2026-11-27';
 export const DATA_CALIBER =
   '本站收录为人工整理的公开情报（截至 2026-11-26），不是全球试验数据库的全量统计；' +
   '数字均为已发表试验或企业公告披露的结果，详见各条目来源。';
@@ -174,6 +174,19 @@ export const DRUGS = [
     imageCredit: 'Wikimedia Commons',
     sourceLinks: [
       { label: 'ELIPSE（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32813947/' },
+    ],
+  },
+  {
+    id: 'd29', name: '芮弗西拜单抗', nameEn: 'Rivocibart（SHR-1918）', target: 'ANGPTL3',
+    tech: '单克隆抗体', stage: '已上市', category: '降脂',
+    mechanism: '单克隆抗体抑制 ANGPTL3，解除对脂蛋白脂肪酶和内皮脂肪酶的抑制，加速脂质清除，不依赖 LDL 受体；每 4 周一次 600 mg 皮下注射。',
+    indication: '纯合子家族性高胆固醇血症（HoFH）：与低脂饮食和其他降脂药物合用，治疗成人和 12 岁及以上青少年，降低 LDL-C；中国 NMPA 于 2026 年 11 月 12 日通过优先审评程序批准（商品名艾轻达），为国内首个自主研发获批的 ANGPTL3 单抗。',
+    endpoint: 'SHR-1918-301 III期（54 例 HoFH 患者）：12 周时 LDL-C 较基线下降 58.8%，安慰剂组上升 5.5%，组间差异 -64.2 个百分点（P<0.0001）；83.3% 的用药患者 LDL-C 降幅 ≥50%。甘油三酯下降 54.2%，ApoB 下降 49.0%。',
+    source: '恒瑞医药港交所公告（2026-11-12）；NMPA 批准公告（2026-11-12）；ClinicalTrials.gov NCT06723652',
+    sourceLinks: [
+      { label: '恒瑞医药公告（2026-11-12）· 港交所', url: 'https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1112/2026111200628.pdf' },
+      { label: 'NMPA 批准公告（2026-11-12）', url: 'https://www.nmpa.gov.cn/zhuanti/cxylqx/cxypxx/20261112141638109.html' },
+      { label: 'ClinicalTrials.gov NCT06723652', url: 'https://clinicaltrials.gov/study/NCT06723652' },
     ],
   },
   {
@@ -365,16 +378,18 @@ export const DRUGS = [
   },
   {
     id: 'd22', name: 'Lorundrostat', nameEn: 'Lorundrostat', target: '醛固酮合成酶 CYP11B2',
-    tech: '小分子', stage: 'III期进行中', category: '难治性高血压',
+    tech: '小分子', stage: 'III期完成', category: '难治性高血压',
     mechanism: '醛固酮合成酶抑制剂，与 baxdrostat 同类机制，针对醛固酮驱动的高血压。',
-    indication: '未控制或难治性高血压（在研适应症）。',
-    endpoint: 'II期研究显示降压效果；III期进行中，尚未公布关键结果。',
-    source: 'II期试验数据；企业公告',
+    indication: '未控制或难治性高血压（在研适应症）；美国 FDA 正在审评其新药申请，PDUFA 目标日期为 2026 年 12 月 22 日。',
+    endpoint: 'Launch-HTN III期（1,083 例未控制/难治性高血压）：50 mg 组 6 周自动诊室收缩压下降 16.9 mmHg，安慰剂校正 -9.1 mmHg（P<0.001）；12 周时安慰剂校正 -11.7 mmHg，结果发表于 JAMA 2025。Transform-HTN 开放标签延长试验（AHA 2026）：48 周时收缩压较 Launch-HTN 基线下降 17.8 mmHg，56% 的患者收缩压 <130 mmHg。',
+    source: 'Launch-HTN 试验（JAMA 2025，PMID 40587141）；Transform-HTN（AHA 2026）；Mineralys 公告',
     image: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Lorundrostat.svg',
     imageCaption: '化学结构式',
     imageCredit: 'Wikimedia Commons',
     sourceLinks: [
-      { label: 'Lorundrostat · PubMed检索', url: 'https://pubmed.ncbi.nlm.nih.gov/?term=lorundrostat' },
+      { label: 'Launch-HTN（JAMA 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40587141/' },
+      { label: 'Transform-HTN 公告（2026-11-08）· GlobeNewswire', url: 'https://www.morningstar.com/news/globe-newswire/9872602/mineralys-therapeutics-presents-new-late-breaking-data-from-transform-htn-open-label-extension-trial-of-lorundrostat-in-hypertension-at-aha-scientific-sessions-2026' },
+      { label: 'ClinicalTrials.gov NCT06153693', url: 'https://clinicaltrials.gov/study/NCT06153693' },
     ],
   },
   {
@@ -439,7 +454,7 @@ export const DRUGS = [
   },
 ];
 
-// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-26） ----------------
+// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-27） ----------------
 // type: 试验推进 | 结果公布 | 获批 | 失败/未达终点 | 指南更新
 export const RADAR_EVENTS = [
   {
@@ -485,6 +500,18 @@ export const RADAR_EVENTS = [
     drug: 'Baxdrostat', target: 'CYP11B2', tech: '小分子', stage: '已上市',
   },
   {
+    id: 'e24', date: '2026-11-12', type: '获批', level: '重大',
+    title: '芮弗西拜单抗获 NMPA 批准：中国首个自主研发的 ANGPTL3 单抗',
+    summary: '国家药监局通过优先审评程序批准恒瑞医药子公司北京盛迪申报的芮弗西拜单抗注射液（Rivocibart，SHR-1918，商品名艾轻达）上市，可与低脂饮食和其他降脂药物合用，用于治疗成人和 12 岁及以上青少年的纯合子家族性高胆固醇血症（HoFH），降低 LDL-C。这是国内首个自主研发获批的 ANGPTL3 单抗，采用每 4 周一次 600 mg 皮下注射（预充式自动注射笔），作用不依赖 LDL 受体。III期 SHR-1918-301 研究（54 例 HoFH 患者，ESC 2026 年会 LBA 公布）：12 周时 LDL-C 较基线下降 58.8%，安慰剂组上升 5.5%，组间差异 -64.2 个百分点（P<0.0001）。',
+    source: '恒瑞医药港交所公告（2026-11-12）；NMPA 批准公告（2026-11-12）；ClinicalTrials.gov NCT06723652',
+    sourceLinks: [
+      { label: '恒瑞医药公告（2026-11-12）· 港交所', url: 'https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1112/2026111200628.pdf' },
+      { label: 'NMPA 批准公告（2026-11-12）', url: 'https://www.nmpa.gov.cn/zhuanti/cxylqx/cxypxx/20261112141638109.html' },
+      { label: 'ClinicalTrials.gov NCT06723652', url: 'https://clinicaltrials.gov/study/NCT06723652' },
+    ],
+    drug: '芮弗西拜单抗', target: 'ANGPTL3', tech: '单克隆抗体', stage: '已上市',
+  },
+  {
     id: 'e22', date: '2026-11-09', type: '结果公布', level: '重要',
     title: 'MAR001（ANGPTL4 抗体）TYDAL-TIMI 78 IIb 期结果发表于 NEJM：12 周甘油三酯安慰剂校正降幅 39.1%–45.3%',
     summary: 'Marea Therapeutics 的首创 ANGPTL4 单抗 MAR001 在 IIb 期 TYDAL-TIMI 78 Part A 中达到主要终点：235 名高甘油三酯血症成人（中位基线甘油三酯 249.5 mg/dL）随机接受 MAR001 300、450 或 900 mg（每 4 周皮下注射）或安慰剂，12 周时空腹甘油三酯安慰剂校正降幅分别为 -39.1、-40.5、-45.3 个百分点（P<0.001）；基线 ≥300 mg/dL 亚组降幅最高 57.2%，基线 ≥500 mg/dL 组较基线降幅最高 72.2%，效果持续至 24 周。安全性总体良好：MAR001 组不良事件 69%，安慰剂组 78%，未见 HbA1c 恶化、无胰腺炎病例。结果在 AHA 2026 年会以 late-breaker 公布并同步发表于 NEJM。针对重度高甘油三酯血症的 Part B 已开始入组。',
@@ -505,6 +532,18 @@ export const RADAR_EVENTS = [
       { label: '信达生物公告（2026-11-08）· PRNewswire', url: 'https://www.prnewswire.com/news-releases/innovent-announces-phase-3-credit-5-study-met-primary-endpoint-sintbilo-tafolecimab-injection-as-first-line-monotherapy-treatment-for-hyperlipidemia-demonstrated-potent-lipid-lowering-efficacy-302932681.html' },
     ],
     drug: 'Tafolecimab', target: 'PCSK9', tech: '单克隆抗体', stage: 'III期完成',
+  },
+  {
+    id: 'e25', date: '2026-11-08', type: '结果公布', level: '重要',
+    title: 'Lorundrostat Transform-HTN 延长试验 48 周结果：降压效果持续，56% 患者收缩压达标',
+    summary: 'Mineralys 在 AHA 2026 年会 late-breaker 专场公布 Transform-HTN 开放标签延长试验结果：632 名由 Launch-HTN III期试验转入的未控制/难治性高血压患者接受 lorundrostat 长期治疗，48 周时自动诊室收缩压较 Launch-HTN 基线下降 17.8 mmHg（n=504，P<0.0001），56.0% 的患者收缩压降至 130 mmHg 以下；92% 的患者完成 48 周随访，严重不良事件发生率 4.3%，未出现超出 Launch-HTN 的新安全性信号。这是迄今规模最大的醛固酮合成酶抑制剂长期高血压试验。美国 FDA 正在审评 lorundrostat 的新药申请，PDUFA 目标日期为 2026 年 12 月 22 日。',
+    source: 'Mineralys 公告（2026-11-08）；AHA 2026 年会 late-breaker；ClinicalTrials.gov NCT05968430',
+    sourceLinks: [
+      { label: 'Mineralys 公告（2026-11-08）· GlobeNewswire', url: 'https://www.morningstar.com/news/globe-newswire/9872602/mineralys-therapeutics-presents-new-late-breaking-data-from-transform-htn-open-label-extension-trial-of-lorundrostat-in-hypertension-at-aha-scientific-sessions-2026' },
+      { label: 'Launch-HTN（JAMA 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40587141/' },
+      { label: 'ClinicalTrials.gov NCT05968430', url: 'https://clinicaltrials.gov/study/NCT05968430' },
+    ],
+    drug: 'Lorundrostat', target: 'CYP11B2', tech: '小分子', stage: 'III期完成',
   },
   {
     id: 'e1', date: '2026-11-07', type: '失败/未达终点', level: '重大',
@@ -705,6 +744,16 @@ export const TRIALS = [
   { id: 't3', trial: 'BrigHTN', drug: 'Baxdrostat', phase: 'II期', indication: '难治性高血压', endpoint: '12 周诊室收缩压变化', status: '已完成（结果已公布）', result: '2 mg 组安慰剂校正下降约 11 mmHg（NEJM 2023）', nct: '', changeLog: '2023-02 结果发表；HALO 试验（未控制高血压）同期未达主要终点。',
      sourceLinks: [
       { label: 'BrigHTN（NEJM 2023）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/36342143/' },
+    ], },
+  { id: 't18', trial: 'Launch-HTN', drug: 'Lorundrostat', phase: 'III期', indication: '未控制 / 难治性高血压', endpoint: '6 周自动诊室收缩压较基线变化', status: '已完成（结果已公布）', result: '50 mg 组 6 周安慰剂校正 -9.1 mmHg，12 周 -11.7 mmHg（JAMA 2025）；延长试验 Transform-HTN 48 周降幅维持 17.8 mmHg', nct: 'NCT06153693', changeLog: '2025-03 III期 topline 达主要终点 → 2025-06 发表于 JAMA → 2026-11-08 Transform-HTN 48 周数据在 AHA 2026 公布 → FDA 审评中，PDUFA 目标日期 2026-12-22。',
+    sourceLinks: [
+      { label: 'Launch-HTN（JAMA 2025）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/40587141/' },
+      { label: 'ClinicalTrials.gov NCT06153693', url: 'https://clinicaltrials.gov/study/NCT06153693' },
+    ], },
+  { id: 't19', trial: 'SHR-1918-301', drug: '芮弗西拜单抗', phase: 'III期', indication: '纯合子家族性高胆固醇血症（HoFH）', endpoint: '12 周 LDL-C 较基线变化', status: '已完成（结果已公布）', result: '12 周 LDL-C -58.8%，安慰剂校正差异 -64.2 个百分点（ESC 2026 LBA）；2026-11-12 获 NMPA 批准', nct: 'NCT06723652', changeLog: '2026 年 ESC 年会 LBA 公布 III期结果 → 2026-11-12 获 NMPA 批准上市。',
+    sourceLinks: [
+      { label: '恒瑞医药公告（2026-11-12）· 港交所', url: 'https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1112/2026111200628.pdf' },
+      { label: 'ClinicalTrials.gov NCT06723652', url: 'https://clinicaltrials.gov/study/NCT06723652' },
     ], },
   { id: 't4', trial: 'KARDIA-1', drug: 'Zilebesiran', phase: 'II期', indication: '轻中度高血压', endpoint: '3 个月 24 小时平均收缩压变化', status: '已完成（结果已公布）', result: '300 mg 组安慰剂校正 -16.7 mmHg，效果持续至 6 个月（JAMA 2024）', nct: '', changeLog: '2024-02 结果发表 → 2025 年进入 III期 ZENITH。',
      sourceLinks: [
