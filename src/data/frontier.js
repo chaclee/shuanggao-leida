@@ -1,4 +1,4 @@
-// 双高雷达 · 前沿技术展示版 — 内容数据（截至 2026-11-26，人工整理）
+// 双高雷达 · 前沿技术展示版 — 内容数据（截至 2026-11-28，人工整理）
 // 准确性规则：
 // - 只写公开资料里能查到的事实；每条都写依据来源与版本。
 // - 试验结果数字必须标试验名和来源；不确定的写“在研中，尚未公布关键结果”，不编数字。
@@ -7,9 +7,9 @@
 //   CORALreef Outcomes NCT06008756、ORION-4 NCT03705234、TYDAL-TIMI 78 NCT07028749），其余只写试验名 + 公开来源，不写不确定的 NCT 号。
 // - 本站不收录任何个人健康数据。
 
-export const DATA_AS_OF = '2026-11-27';
+export const DATA_AS_OF = '2026-11-28';
 export const DATA_CALIBER =
-  '本站收录为人工整理的公开情报（截至 2026-11-26），不是全球试验数据库的全量统计；' +
+  '本站收录为人工整理的公开情报（截至 2026-11-28），不是全球试验数据库的全量统计；' +
   '数字均为已发表试验或企业公告披露的结果，详见各条目来源。';
 
 export const SOURCES = [
@@ -262,15 +262,17 @@ export const DRUGS = [
   },
   {
     id: 'd14', name: 'Obicetrapib', nameEn: 'Obicetrapib', target: 'CETP（胆固醇酯转移蛋白）',
-    tech: '小分子', stage: 'III期进行中', category: '降脂',
+    tech: '小分子', stage: '已上市', category: '降脂',
     mechanism: '抑制 CETP，减少 HDL 向 LDL 的胆固醇转移，从而降低 LDL-C。',
-    indication: '他汀治疗后 LDL-C 仍未达标者（在研适应症）。',
-    endpoint: 'BROOKLYN / BROADWAY 试验：LDL-C 降幅约 40%；心血管结局试验 PREVAIL 进行中，尚未公布关键结果。',
-    source: 'BROOKLYN / BROADWAY 试验数据；PREVAIL 试验登记',
+    indication: '原发性高胆固醇血症或混合型血脂异常成人患者，联用低脂饮食，作为他汀等现有降脂治疗的补充；复方制剂用于经依折麦布加最大耐受剂量他汀仍未达标者。',
+    endpoint: 'BROOKLYN / BROADWAY III期试验：LDL-C 降幅约 40%；两项 52 周试验中安慰剂校正降幅分别为 36% 与 33%。欧盟委员会 2026-09-21 批准单药（Ubeslo）与依折麦布复方（Evlarco）上市，为全球首批；英国 MHRA 2026-11-26 批准上市。心血管结局试验 PREVAIL 进行中，尚未公布关键结果。',
+    source: '欧盟委员会批准公告（2026-09-21）；英国 MHRA 批准公告（2026-11-26）；BROOKLYN / BROADWAY 试验数据',
     image: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Obicetrapib.svg',
     imageCaption: '化学结构式',
     imageCredit: 'Wikimedia Commons',
     sourceLinks: [
+      { label: '欧盟委员会批准公告（2026-09-21）· GlobeNewswire', url: 'https://www.prnewswire.com/news-releases/menarini-group-and-newamsterdam-pharma-receive-european-commission-approval-for-ubeslo-obicetrapib-monotherapy-and-evlarco-obicetrapib-plus-ezetimibe-fixed-dose-combination-302884871.html' },
+      { label: '英国 MHRA 批准公告（2026-11-26）· GOV.UK', url: 'https://www.gov.uk/government/news/mhra-authorises-obicetrapib-and-ezetimibe-for-adults-with-high-cholesterol-when-current-treatments-are-insufficient' },
       { label: 'BROOKLYN（Nat Med 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/41760952/' },
     ],
   },
@@ -454,9 +456,20 @@ export const DRUGS = [
   },
 ];
 
-// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-27） ----------------
+// ---------------- 前沿技术雷达：研发事件（按时间倒序，截至 2026-11-28） ----------------
 // type: 试验推进 | 结果公布 | 获批 | 失败/未达终点 | 指南更新
 export const RADAR_EVENTS = [
+  {
+    id: 'e21', date: '2026-11-26', type: '获批', level: '重大',
+    title: 'Obicetrapib 获英国 MHRA 批准上市：口服 CETP 抑制剂单药与复方双双获批',
+    summary: '英国药品和健康产品管理局（MHRA）2026 年 11 月 26 日批准 obicetrapib 单药（Ubeslo，每日一次口服片剂）与 obicetrapib 加依折麦布复方（Evlarco）上市，用于原发性高胆固醇血症或混合型血脂异常成人患者，适用于现有降脂治疗仍未达标者。单药获批基于两项 52 周随机双盲安慰剂对照试验，安慰剂校正 LDL-C 降幅分别为 36% 与 33%，第 4 周即达最大降幅；复方获批基于一项 407 例患者的随机对照试验。此前欧盟委员会已于 2026 年 9 月 21 日批准两款产品上市，为全球首批。心血管结局试验 PREVAIL 仍在进行中，尚未公布关键结果。',
+    source: '英国 MHRA 公告（2026-11-26）；欧盟委员会批准公告（2026-09-21）',
+    sourceLinks: [
+      { label: '英国 MHRA 批准公告（2026-11-26）· GOV.UK', url: 'https://www.gov.uk/government/news/mhra-authorises-obicetrapib-and-ezetimibe-for-adults-with-high-cholesterol-when-current-treatments-are-insufficient' },
+      { label: '欧盟委员会批准公告（2026-09-21）· GlobeNewswire', url: 'https://www.prnewswire.com/news-releases/menarini-group-and-newamsterdam-pharma-receive-european-commission-approval-for-ubeslo-obicetrapib-monotherapy-and-evlarco-obicetrapib-plus-ezetimibe-fixed-dose-combination-302884871.html' },
+    ],
+    drug: 'Obicetrapib', target: 'CETP', tech: '小分子', stage: '已上市',
+  },
   {
     id: 'e20', date: '2026-11-23', type: '结果公布', level: '重大',
     title: '英克司兰 ORION-4 III期试验达到主要终点：首个 siRNA 疗法的心血管结局证据',
@@ -869,7 +882,7 @@ export const EVIDENCE_LDL = [
     sourceLinks: [
       { label: 'ELIPSE（NEJM 2020）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/32813947/' },
     ], },
-  { drug: 'Obicetrapib（在研）', result: 'LDL-C 降幅约 40%', note: 'III期结局试验进行中', source: 'BROOKLYN / BROADWAY',
+  { drug: 'Obicetrapib（Ubeslo）', result: 'LDL-C 降幅约 40%', note: '已在欧盟（2026-09-21）与英国（2026-11-26）获批上市；III期结局试验 PREVAIL 进行中', source: 'BROOKLYN / BROADWAY',
     sourceLinks: [
       { label: 'BROOKLYN（Nat Med 2026）· PubMed', url: 'https://pubmed.ncbi.nlm.nih.gov/41760952/' },
     ], },
